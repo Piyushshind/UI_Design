@@ -1,0 +1,8 @@
+.verificationPage {
+  background-color: #fff;
+  flex-direction: column;
+  align-items: stretch;
+  padding-bottom: 96px;
+  display: flex;
+  overflow: hidden;
+}

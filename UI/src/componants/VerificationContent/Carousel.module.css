@@ -1,0 +1,156 @@
+.carouselContainer {
+    /* border: 5px solid blueviolet; */
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 40px;
+    box-sizing: border-box;
+}
+
+.slideTrack {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
+}
+
+.slide {
+    flex: 0 0 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+.slideImage {
+    width: 100%;
+    height: 450px;
+    object-fit: contain;
+    border-radius: 8px;
+    display: block;
+}
+
+.legend {
+    color: #2181da;
+    text-align: center;
+    font-family: Plus Jakarta Sans;
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 1.5;
+    width: 100%;
+    max-width: 500px;
+    margin: 0;
+    padding: 0 15px;
+    box-sizing: border-box;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+}
+
+.dotsContainer {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 12px;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #d1d5db;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+.activeDot {
+    background-color: #2181da;
+    transform: scale(1.2);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .carouselContainer {
+        padding-bottom: 35px;
+    }
+
+    .slideImage {
+        height: 280px;
+    }
+
+    .legend {
+        font-size: 16px;
+        padding: 0 10px;
+        max-width: 90%;
+    }
+
+    .dot {
+        width: 8px;
+        height: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .carouselContainer {
+        padding-bottom: 30px;
+    }
+
+    .slideImage {
+        height: 200px;
+    }
+
+    .slide {
+        gap: 15px;
+    }
+
+    .legend {
+        font-size: 15px;
+        line-height: 1.4;
+        padding: 0 8px;
+        max-width: 95%;
+    }
+
+    .dotsContainer {
+        gap: 8px;
+        padding: 8px;
+    }
+
+    .dot {
+        width: 6px;
+        height: 6px;
+    }
+}
+
+@media (max-width: 320px) {
+    .carouselContainer {
+        padding-bottom: 25px;
+    }
+
+    .slideImage {
+        height: 180px;
+    }
+
+    .legend {
+        font-size: 14px;
+        padding: 0 5px;
+    }
+
+    .slide {
+        gap: 12px;
+        padding: 0 5px;
+    }
+}

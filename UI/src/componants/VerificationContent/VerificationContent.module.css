@@ -1,0 +1,219 @@
+.verificationPage {
+    background-color: #fff;
+    flex-direction: column;
+    align-items: stretch;
+    padding-bottom: 8px;
+    display: flex;
+    overflow: hidden;
+    /* border: 5px solid pink; */
+}
+
+.contentContainer {
+    align-self: center;
+    width: 100%;
+    max-width: 1295px;
+    margin-top: 5px;
+}
+
+.contentWrapper {
+    /* border: 5px solid rgb(179, 46, 68); */
+
+    gap: 20px;
+    display: flex;
+}
+
+@media (width <=991px) {
+    .contentContainer {
+        max-width: 100%;
+    }
+
+    .contentWrapper {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+    }
+}
+
+
+
+/* contentInfo */
+
+.infoColumn {
+    /* border: 5px solid red; */
+    flex-direction: column;
+    align-items: stretch;
+    width: 38%;
+    margin-left: 0;
+    line-height: normal;
+    display: flex;
+}
+
+.infoContent {
+    flex-direction: column;
+    align-items: start;
+    width: 100%;
+    margin-top: 10px;
+    font-family: Plus Jakarta Sans, -apple-system, Roboto, Helvetica, sans-serif;
+    display: flex;
+}
+
+.logo {
+    aspect-ratio: 2.7;
+    object-fit: contain;
+    object-position: center;
+    width: 108px;
+    max-width: 100%;
+}
+
+.textContent {
+    align-self: stretch;
+    margin-top: 200px;
+}
+
+.textWrapper {
+    width: 450px;
+    max-width: 100%;
+}
+
+.title {
+    font-size: 36px;
+    font-weight: 600;
+    line-height: 50px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background: linear-gradient(90deg, #124574, #2181DA);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.description {
+    color: #708090; 
+    margin-top: 12px;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 23px;
+}
+
+.continueButton {
+    background: linear-gradient(90deg, #55acff 0%, #2181da 100%);
+    color: #fff;
+    border: none;
+    border-radius: 32px;
+    align-self: stretch;
+    gap: 10px;
+    margin: 50px 30px 5px;
+    padding: 14px 89px;
+    font-size: 16px;
+    font-weight: 600;
+    box-shadow: 0 2px 8px #70809080;
+    cursor: pointer;
+}
+
+@media (width <=991px) {
+    .infoColumn {
+        width: 100%;
+    }
+
+    .infoContent {
+        max-width: 100%;
+        margin-top: 40px;
+    }
+
+    .textContent {
+        max-width: 100%;
+        margin-top: 40px;
+    }
+
+    .title {
+        max-width: 100%;
+    }
+
+    .continueButton {
+        margin: 40px 40px 5px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+
+
+/* carousel */
+
+.illustrationColumn {
+    /* border: 5px solid black; */
+
+    flex-direction: column;
+    align-items: stretch;
+    width: 62%;
+    /* margin-left: 20px; */
+    line-height: normal;
+    display: flex;
+}
+
+.illustrationContent {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    display: flex;
+}
+
+.illustration {
+    aspect-ratio: 0.94;
+    object-fit: contain;
+    object-position: center;
+    width: 100%;
+}
+
+
+@media (width <=991px) {
+    .illustrationColumn {
+        width: 100%;
+    }
+
+    .illustrationContent {
+        max-width: 100%;
+        margin-top: 40px;
+    }
+
+    .illustration {
+        max-width: 100%;
+    }
+
+}
+
+
+/* Ensure the carousel container is responsive */
+.carousel .slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carousel img {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    /* Ensures images maintain aspect ratio */
+}
+
+/* Optional: Style for the legend text */
+.legend {
+    text-align: center;
+    font-size: 1rem;
+    color: #333;
+    padding: 10px;
+}
+
+
+/* Optional: max width for carousel */
+.carousel .carousel-slider {
+    max-width: 100%;
+}
+
+.carousel-container {
+    width: 100%;
+    max-width: 1200px;
+    /* Set a max width if needed */
+    margin: 0 auto;
+    /* Centers the carousel */
+}

@@ -1,0 +1,290 @@
+.desktop8 {
+  background-color: #fff;
+  padding-bottom: 206px;
+  overflow: hidden;
+}
+
+@media (width<=991px) {
+  .desktop8 {
+    padding-bottom: 100px;
+  }
+}
+
+.searchBox {
+  background-color: #fff;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  width: 100%;
+  padding: 5px 24px;
+  display: flex;
+}
+
+@media (width<=991px) {
+  .searchBox {
+    max-width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+.navigationBar {
+  flex-wrap: wrap;
+  justify-content: start;
+  align-items: center;
+  gap: 16px;
+  display: flex;
+}
+
+@media (width<=991px) {
+  .navigationBar {
+    max-width: 100%;
+  }
+}
+
+.actionGroup {
+  justify-content: start;
+  align-self: stretch;
+  align-items: start;
+  gap: 16px;
+  margin-top: auto;
+  margin-bottom: auto;
+  display: flex;
+}
+
+.iconGroup {
+  justify-content: start;
+  align-items: start;
+  gap: 16px;
+  width: 48px;
+  min-height: 16px;
+  display: flex;
+}
+
+.iconImage {
+  aspect-ratio: 1;
+  object-fit: contain;
+  object-position: center;
+  flex-shrink: 0;
+  width: 16px;
+}
+
+.searchBar {
+  color: #6b6c6e;
+  white-space: nowrap;
+  background-color: #f1f3f4;
+  border-radius: 20px;
+  flex-wrap: wrap;
+  align-self: stretch;
+  align-items: stretch;
+  gap: 40px 100px;
+  width: 1115px;
+  min-width: 240px;
+  margin-top: auto;
+  margin-bottom: auto;
+  padding: 5px 12px;
+  font-family: Manrope, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  display: flex;
+}
+
+@media (width<=991px) {
+  .searchBar {
+    max-width: 100%;
+    white-space: initial;
+  }
+}
+
+.searchContent {
+  justify-content: start;
+  align-items: start;
+  gap: 5px;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  display: flex;
+}
+
+@media (width<=991px) {
+  .searchContent {
+    white-space: initial;
+  }
+}
+
+.google {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  display: flex;
+}
+
+.searchIcon {
+  aspect-ratio: 1;
+  object-fit: contain;
+  object-position: center;
+  flex-shrink: 0;
+  align-self: start;
+  width: 16px;
+}
+
+.optionsImage {
+  aspect-ratio: 6.06;
+  object-fit: contain;
+  object-position: center;
+  flex-shrink: 0;
+  align-self: stretch;
+  width: 133px;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.authenticationContainer {
+  flex-direction: column;
+  width: 100%;
+  max-width: 1048px;
+  margin-top: 24px;
+  margin-left: 80px;
+  display: flex;
+}
+
+@media (width<=991px) {
+  .authenticationContainer {
+    max-width: 100%;
+  }
+}
+
+.authLogo {
+  aspect-ratio: 2.7;
+  object-fit: contain;
+  object-position: center;
+  width: 108px;
+  max-width: 100%;
+}
+
+.verificationSection {
+  flex-direction: column;
+  justify-content: start;
+  align-self: end;
+  align-items: center;
+  width: 550px;
+  max-width: 100%;
+  margin-top: 30px;
+  margin-right: 133px;
+  font-family: Plus Jakarta Sans, -apple-system, Roboto, Helvetica, sans-serif;
+  display: flex;
+}
+
+@media (width<=991px) {
+  .verificationSection {
+    margin-right: 10px;
+  }
+}
+
+.instructionText {
+  color: #708090;
+  text-align: center;
+  width: 351px;
+  max-width: 100%;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.verificationCode {
+  color: #2181da;
+  white-space: nowrap;
+  letter-spacing: 9.6px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  width: 100%;
+  max-width: 550px;
+  margin-top: 12px;
+  font-size: 24px;
+  font-weight: 600;
+  display: flex;
+}
+
+@media (width<=991px) {
+  .verificationCode {
+    max-width: 100%;
+    white-space: initial;
+  }
+}
+
+.codeDisplay {
+  background-color: #fcf4ff;
+  border-radius: 16px;
+  align-self: stretch;
+  gap: 14px;
+  width: 100%;
+  min-height: 48px;
+  padding: 9px 10px;
+}
+
+@media (width<=991px) {
+  .codeDisplay {
+    max-width: 100%;
+    white-space: initial;
+  }
+}
+
+.faceRecordingSection {
+  border-radius: 16px;
+  flex-direction: column;
+  justify-content: center;
+  align-self: end;
+  align-items: center;
+  width: 800px;
+  max-width: 100%;
+  margin-top: 30px;
+  padding: 1px 80px;
+  display: flex;
+}
+
+@media (width<=991px) {
+  .faceRecordingSection {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+.recordingPreview {
+  aspect-ratio: 0.75;
+  object-fit: contain;
+  object-position: center;
+  border-radius: 16px;
+  width: 345px;
+  max-width: 100%;
+}
+
+.recordingStatus {
+  color: #708090;
+  text-align: center;
+  flex-direction: column;
+  justify-content: start;
+  align-self: center;
+  align-items: stretch;
+  width: 390px;
+  max-width: 100%;
+  margin-top: 21px;
+  margin-left: 116px;
+  font-family: Urbanist, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1;
+  display: flex;
+}
+
+.statusIcon {
+  aspect-ratio: 1;
+  object-fit: contain;
+  object-position: center;
+  border-radius: 0;
+  align-self: center;
+  width: 60px;
+}
+
+.statusText {
+  width: 100%;
+  margin-top: 10px;
+}

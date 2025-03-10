@@ -1,0 +1,222 @@
+.verificationContainer {
+  background-color: #fff;
+  flex-direction: column;
+  align-items: stretch;
+  padding-bottom: 108px;
+  display: flex;
+  overflow: hidden;
+}
+
+@media (width<=991px) {
+  .verificationContainer {
+    padding-bottom: 100px;
+  }
+}
+
+.contentWrapper {
+  align-self: center;
+  width: 100%;
+  max-width: 1293px;
+  margin-top: 24px;
+}
+
+@media (width<=991px) {
+  .contentWrapper {
+    max-width: 100%;
+  }
+}
+
+.twoColumnLayout {
+  gap: 20px;
+  display: flex;
+}
+
+@media (width<=991px) {
+  .twoColumnLayout {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+}
+
+.leftColumn {
+  flex-direction: column;
+  align-items: stretch;
+  width: 38%;
+  margin-left: 0;
+  line-height: normal;
+  display: flex;
+}
+
+@media (width<=991px) {
+  .leftColumn {
+    width: 100%;
+  }
+}
+
+.headerContainer {
+  flex-direction: column;
+  align-items: start;
+  width: 100%;
+  font-family: Plus Jakarta Sans, -apple-system, Roboto, Helvetica, sans-serif;
+  display: flex;
+}
+
+@media (width<=991px) {
+  .headerContainer {
+    max-width: 100%;
+    margin-top: 40px;
+  }
+}
+
+.logo {
+  aspect-ratio: 2.7;
+  object-fit: contain;
+  object-position: center;
+  width: 108px;
+  max-width: 100%;
+}
+
+.headerContent {
+  align-self: stretch;
+  margin-top: 293px;
+}
+
+@media (width<=991px) {
+  .headerContent {
+    max-width: 100%;
+    margin-top: 40px;
+  }
+}
+
+.titleWrapper {
+  width: 450px;
+  max-width: 100%;
+}
+
+.title {
+  font-size: 36px;
+  font-weight: 600;
+  line-height: 50px;
+}
+
+@media (width<=991px) {
+  .title {
+    max-width: 100%;
+  }
+}
+
+.description {
+  color: #708090;
+  margin-top: 12px;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 23px;
+}
+
+.rightColumn {
+  flex-direction: column;
+  align-items: stretch;
+  width: 62%;
+  margin-left: 20px;
+  line-height: normal;
+  display: flex;
+}
+
+@media (width<=991px) {
+  .rightColumn {
+    width: 100%;
+  }
+}
+
+.mainContent {
+  flex-direction: column;
+  align-items: stretch;
+  width: 100%;
+  display: flex;
+}
+
+@media (width<=991px) {
+  .mainContent {
+    max-width: 100%;
+    margin-top: 40px;
+  }
+}
+
+.verificationIcon {
+  aspect-ratio: 1;
+  object-fit: contain;
+  object-position: center;
+  z-index: 10;
+  align-self: end;
+  width: 36px;
+}
+
+@media (width<=991px) {
+  .verificationIcon {
+    margin-right: 10px;
+  }
+}
+
+.previewImage {
+  aspect-ratio: 1;
+  object-fit: contain;
+  object-position: center;
+  border-radius: 0;
+  width: 100%;
+}
+
+@media (width<=991px) {
+  .previewImage {
+    max-width: 100%;
+  }
+}
+
+.progressWrapper {
+  justify-content: center;
+  align-self: center;
+  align-items: center;
+  gap: 40px;
+  margin-top: 85px;
+  display: flex;
+}
+
+@media (width<=991px) {
+  .progressWrapper {
+    margin-top: 40px;
+  }
+}
+
+.progressContainer {
+  justify-content: start;
+  align-self: stretch;
+  align-items: center;
+  gap: 10px;
+  margin-top: auto;
+  margin-bottom: auto;
+  display: flex;
+}
+
+.progressDot {
+  background-color: #d3e6f8;
+  border-radius: 50%;
+  flex-shrink: 0;
+  align-self: stretch;
+  width: 9px;
+  height: 9px;
+  margin-top: auto;
+  margin-bottom: auto;
+  display: flex;
+}
+
+.progressDotActive {
+  background-color: #9acaf6;
+  border-radius: 50%;
+  flex-shrink: 0;
+  align-self: stretch;
+  width: 9px;
+  height: 9px;
+  margin-top: auto;
+  margin-bottom: auto;
+  display: flex;
+}
