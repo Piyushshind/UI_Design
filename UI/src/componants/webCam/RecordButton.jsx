@@ -1,11 +1,11 @@
 import React from "react";
 import styles from "./CamRecorder.module.css";
 
-function RecordButton() {
+function RecordButton({ translations }) {
   return (
     <button className={styles.recordButton} aria-label="Start Recording">
       <img src="./assets/videoIcon.svg" alt="video icon" className={styles.icon} />
-      <span className={styles.buttonText}>Start Recording</span>
+      <span className={styles.buttonText}>{translations.startRecording}</span>
     </button>
   );
 }

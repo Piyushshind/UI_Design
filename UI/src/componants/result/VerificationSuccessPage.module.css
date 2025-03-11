@@ -1,0 +1,130 @@
+.container {
+    background-color: #fff;
+    min-height: 100vh;
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logoHeader {
+    position: absolute;
+    top: 62px;
+    left: 80px;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.logo {
+    width: 108px;
+    height: auto;
+    max-width: 100%;
+    object-fit: contain;
+}
+
+.contentSection {
+    width: 100%;
+    max-width: 421px;
+    position: absolute;
+    top: 255px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.contentWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 28px;
+    width: 100%;
+}
+
+.imageWrapper {
+    width: 100%;
+    max-width: 218px;
+    aspect-ratio: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.verificationIcon {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.title {
+    color: #2181da;
+    text-align: center;
+    font-family:
+        Plus Jakarta Sans,
+        sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 140%;
+    margin: 0;
+    width: 100%;
+}
+
+/* Tablet */
+@media (max-width: 991px) {
+    .contentSection {
+        max-width: 80%;
+    }
+
+    .title {
+        font-size: 32px;
+    }
+
+    .imageWrapper {
+        max-width: 180px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+    .logoHeader {
+        position: relative;
+        top: 20px;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 40px;
+    }
+
+    .logo {
+        width: 90px;
+    }
+
+    .contentSection {
+        position: relative;
+        top: 0;
+        left: 0;
+        transform: none;
+        max-width: 90%;
+        margin: 6rem auto;
+    }
+
+    .title {
+        font-size: 28px;
+    }
+
+    .imageWrapper {
+        max-width: 150px;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 375px) {
+    .title {
+        font-size: 24px;
+    }
+
+    .imageWrapper {
+        max-width: 120px;
+    }
+}

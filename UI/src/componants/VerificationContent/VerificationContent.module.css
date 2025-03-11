@@ -71,7 +71,7 @@
 }
 
 .textWrapper {
-    width: 450px;
+    width: 100%;
     max-width: 100%;
 }
 
@@ -87,7 +87,7 @@
 }
 
 .description {
-    color: #708090; 
+    color: #708090;
     margin-top: 12px;
     font-size: 15px;
     font-weight: 500;

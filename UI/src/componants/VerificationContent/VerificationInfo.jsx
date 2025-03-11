@@ -1,13 +1,17 @@
 import React from 'react'
 import styles from "./VerificationContent.module.css";
 import CustomButton from '../buttons/CustomButton';
-import { windowWidthState } from '../../recoil/atom'
+import { languageState, windowWidthState } from '../../recoil/atom'
+import { languageData } from '../../recoil/LanguageData/translations'
 import { useRecoilValue } from 'recoil';
 import CustomLogoImage from '../company_logo/CustomLogoImage';
 
 const VerificationInfo = () => {
     const windowWidth = useRecoilValue(windowWidthState);
     const isMobile = windowWidth <= 991;
+
+    const selectedLanguage = useRecoilValue(languageState);
+    const translations = languageData[selectedLanguage];
 
     return (
         <>
@@ -16,15 +20,14 @@ const VerificationInfo = () => {
                     <div className={styles.textContent}>
                         <div className={styles.textWrapper}>
                             <h1 className={styles.title}>
-                                Let's verify your liveliness in 15 seconds
+                                {translations.verificationMessage}
                             </h1>
                             <p className={styles.description}>
-                                Liveliness verification is necessary to proceed with your
-                                application.
+                                {translations.verificationRequired}
                             </p>
                         </div>
                     </div>
-                    {!isMobile ? <CustomButton className={styles.continueButton} btnContent={"Continue"} /> : null}
+                    {!isMobile ? <CustomButton className={styles.continueButton} btnContent={translations.continue} /> : null}
                 </div>
             </article>
         </>

@@ -4,8 +4,13 @@ import styles from "./CamRecorder.module.css";
 import InstructionBox from './InstructionBox';
 import VideoRecorder from './VideoRecorder';
 import RecordButton from './RecordButton';
+import { useRecoilValue } from 'recoil';
+import { languageData } from '../../recoil/LanguageData/translations';
+import { languageState } from '../../recoil/atom';
 
 const CamRecorder = () => {
+    const selectedLanguage = useRecoilValue(languageState);
+    const translations = languageData[selectedLanguage];
     return (
         <>
             <link
@@ -20,12 +25,11 @@ const CamRecorder = () => {
                 />
                 <section className={styles.contentWrapper}>
                     <p className={styles.instructionText}>
-                        Record a video while following the instructions displayed on your
-                        screen.
+                        {translations.followInstructionsForRecording}
                     </p>
-                    <InstructionBox />
+                    <InstructionBox translations={translations} />
                     <VideoRecorder />
-                    <RecordButton />
+                    <RecordButton translations={translations} />
                 </section>
             </main>
         </>

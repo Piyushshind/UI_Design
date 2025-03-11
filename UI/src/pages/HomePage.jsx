@@ -3,9 +3,9 @@ import VerificationContent from '../componants/VerificationContent/VerificationC
 
 const HomePage = () => {
     return (
-        <div>
+        <>
             <VerificationContent />
-        </div>
+        </>
     )
 }
 

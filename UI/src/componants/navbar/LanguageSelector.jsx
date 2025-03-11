@@ -1,10 +1,12 @@
 "use client";
 import React, { useState, useRef, useEffect } from "react";
 import styles from "./LanguageSelector.module.css";
+import { useRecoilState } from "recoil";
+import { languageState } from "../../recoil/atom";
 
 const LanguageSelector = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedLanguage, setSelectedLanguage] = useState("english");
+  const [selectedLanguage, setSelectedLanguage] = useRecoilState(languageState);
   const dropdownRef = useRef(null);
 
   const handleClickOutside = (event) => {

@@ -1,0 +1,222 @@
+.container {
+    background-color: #fff;
+    height: 100vh;
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden;
+}
+
+.header {
+    position: absolute;
+    top: 20px;
+    left: 80px;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.logo {
+    width: 108px;
+    height: auto;
+    max-width: 100%;
+    object-fit: contain;
+}
+
+.content {
+    width: 100%;
+    max-width: 480px;
+    position: absolute;
+    top: 80px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.contentWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    width: 100%;
+}
+
+.iconWrapper {
+    width: 100%;
+    max-width: 276px;
+    aspect-ratio: 277/243;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.warningIcon {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.messageContainer {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+}
+
+.title {
+    color: #333;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 140%;
+    margin: 0;
+    width: 100%;
+}
+
+.description {
+    color: #708090;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 150%;
+    margin: 0;
+    width: 100%;
+}
+
+.recordButton {
+    background: linear-gradient(to right, #9da6ae, #708090);
+    border: none;
+    border-radius: 26px;
+    padding: 14px 32px;
+    cursor: pointer;
+    width: 266px;
+    transition: transform 0.2s ease;
+    box-shadow: 0 4px 8px rgba(112, 128, 144, 0.5);
+}
+
+.recordButton:hover {
+    transform: scale(1.02);
+}
+
+.recordButton:active {
+    transform: scale(0.98);
+}
+
+.buttonContent {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.recordIcon {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+}
+
+.buttonText {
+    color: white;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.attemptsText {
+    color: #708090;
+    font-size: 14px;
+    font-weight: 400;
+    text-align: center;
+    margin: 0;
+}
+
+/* Tablet */
+@media (max-width: 991px) {
+    .content {
+        max-width: 80%;
+    }
+
+    .title {
+        font-size: 32px;
+    }
+
+    .iconWrapper {
+        max-width: 240px;
+    }
+
+    .recordButton {
+        width: 240px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+    .header {
+        position: relative;
+        top: 20px;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+
+    .logo {
+        width: 90px;
+    }
+
+    .content {
+        position: relative;
+        top: 0;
+        left: 0;
+        transform: none;
+        max-width: 90%;
+        margin: 4rem auto;
+    }
+
+    .contentWrapper {
+        gap: 20px;
+    }
+
+    .iconWrapper {
+        max-width: 200px;
+    }
+
+    .title {
+        font-size: 28px;
+    }
+
+    .recordButton {
+        width: 220px;
+        padding: 12px 24px;
+    }
+
+    .buttonText {
+        font-size: 15px;
+    }
+}
+
+
+@media (max-width: 375px) {
+    .title {
+        font-size: 24px;
+    }
+
+    .iconWrapper {
+        max-width: 180px;
+    }
+
+    .recordButton {
+        width: 200px;
+        padding: 10px 20px;
+    }
+
+    .buttonText {
+        font-size: 14px;
+    }
+
+    .description {
+        font-size: 14px;
+    }
+}

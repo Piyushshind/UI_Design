@@ -1,27 +1,30 @@
-"use client";
 import React, { useState, useEffect } from "react";
 import styles from "./Carousel.module.css";
+import { useRecoilValue } from "recoil";
+import { languageData } from "../../recoil/LanguageData/translations";
+import { languageState } from "../../recoil/atom";
 
 const Carousel = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+
+  const selectedLanguage = useRecoilValue(languageState);
+  const translations = languageData[selectedLanguage];
 
   const slides = [
     {
       image: "/assets/carousel_image1.jpg",
       alt: "Verification Illustration 1",
-      legend:
-        "Make sure you are in a well-lit, quiet place that is not in direct sunlight.",
+      legend: translations.lightingMessage
     },
     {
       image: "/assets/carousel_image2.jpg",
       alt: "Verification Illustration 2",
-      legend:
-        "Ensure your face is clearly visible and centered within the camera frame.",
+      legend: translations.faceVisibleMessage
     },
     {
       image: "/assets/carousel_image3.jpg",
       alt: "Verification Illustration 3",
-      legend: "Avoid covering your face with sunglasses, a hat, or a mask.",
+      legend: translations.avoidCoveringFace
     },
   ];
 

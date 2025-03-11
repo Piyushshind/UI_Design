@@ -1,10 +1,10 @@
 import React from "react";
 import styles from "./CamRecorder.module.css";
 
-function InstructionBox() {
+function InstructionBox({ translations }) {
   return (
     <div className={styles.instructionBox}>
-      Hold the face position during recording
+      {translations.holdFacePosition}
     </div>
   );
 }
