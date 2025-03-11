@@ -1,0 +1,124 @@
+.borderContainer {
+    position: relative;
+    display: inline-flex;
+    background: linear-gradient(180deg, #f0f0f1 0%, #fdfdfd 100%);
+    padding: 0.5%;
+}
+
+.corner {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    z-index: 2;
+}
+
+.topLeft {
+    top: 0;
+    left: 0;
+    border-top-left-radius: 12px;
+    border-top: 3px solid #2181da;
+    border-left: 3px solid #2181da;
+}
+
+.topRight {
+    top: 0;
+    right: 0;
+    border-top-right-radius: 12px;
+    border-top: 3px solid #2181da;
+    border-right: 3px solid #2181da;
+}
+
+.bottomLeft {
+    bottom: 0;
+    left: 0;
+    border-bottom-left-radius: 12px;
+    border-bottom: 3px solid #2181da;
+    border-left: 3px solid #2181da;
+}
+
+.bottomRight {
+    bottom: 0;
+    right: 0;
+    border-bottom-right-radius: 12px;
+    border-bottom: 3px solid #2181da;
+    border-right: 3px solid #2181da;
+}
+
+.border {
+    position: absolute;
+    background: #2181da;
+    opacity: 0.6;
+}
+
+.borderTop,
+.borderBottom {
+    height: 1px;
+    left: 24px;
+    right: 24px;
+}
+
+.borderLeft,
+.borderRight {
+    width: 1px;
+    top: 24px;
+    bottom: 24px;
+}
+
+.borderTop {
+    top: 1px;
+}
+
+.borderBottom {
+    bottom: 1px;
+}
+
+.borderLeft {
+    left: 1px;
+}
+
+.borderRight {
+    right: 1px;
+}
+
+.content {
+    position: relative;
+    z-index: 1;
+}
+
+/* Animation for scanning effect */
+@keyframes scan {
+    0% {
+        opacity: 0.2;
+    }
+
+    50% {
+        opacity: 0.8;
+    }
+
+    100% {
+        opacity: 0.2;
+    }
+}
+
+.border {
+    animation: scan 1.5s infinite;
+}
+
+
+@keyframes cornerGlow {
+    0% {
+        opacity: 0.3;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0.3;
+    }
+}
+
+.content {
+    margin: 0.5px;
+}

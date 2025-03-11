@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./InputDesign.module.css";
+import styles from "./CamRecorder.module.css";
 import Webcam from "react-webcam";
 
 function VideoRecorder() {

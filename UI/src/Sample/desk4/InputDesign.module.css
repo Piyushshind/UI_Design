@@ -9,8 +9,8 @@
   width: 108px;
   height: 40px;
   position: absolute;
-  top: 62px;
-  left: 80px;
+  top: 10px;
+  left: 50px;
 }
 
 @media (width<=640px) {
@@ -21,64 +21,12 @@
   }
 }
 
-.searchBar {
-  background-color: #fff;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  height: 38px;
-  padding: 5px 24px;
-  display: flex;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-.searchLeft {
-  align-items: center;
-  gap: 16px;
-  display: flex;
-}
-
-.searchIcons,
-.iconGroup {
-  gap: 16px;
-  display: flex;
-}
-
-.i {
-  color: #5f6368;
-  font-size: 16px;
-}
-
-.searchInput {
-  background-color: #f1f3f4;
-  border-radius: 20px;
-  align-items: center;
-  gap: 5px;
-  width: 1115px;
-  padding: 5px 12px;
-  display: flex;
-}
-
-@media (width<=640px) {
-  .searchInput {
-    width: calc(100% - 100px);
-  }
-}
-
-.urlText {
-  color: #6b6c6e;
-  font-family: Plus Jakarta Sans, sans-serif;
-  font-size: 12px;
-  font-weight: 400;
-  margin: 0;
-}
 
 .contentWrapper {
+  /* border: 5px solid black; */
   flex-direction: column;
   align-items: center;
-  padding-top: 132px;
+  padding-top: 45px;
   display: flex;
 }
 
@@ -88,7 +36,7 @@
   margin-bottom: 12px;
   font-family: Plus Jakarta Sans, sans-serif;
   font-size: 16px;
-  font-weight: 400;
+  font-weight: 420;
 }
 
 @media (width<=640px) {
@@ -112,7 +60,7 @@
 
 @media (width<=991px) {
   .instructionBox {
-    width: 90%;
+    width: 80%;
   }
 }
 
@@ -122,43 +70,169 @@
   }
 }
 
-.videoFrame {
-  width: 800px;
-  height: 460px;
-  margin-bottom: 60px;
-  position: relative;
+.recordButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 250px;
+  height: 52px;
+  margin: 0 auto;
+  background: linear-gradient(90deg, #55acff 0%, #2181da 100%);
+  border: none;
+  border-radius: 26px;
+  cursor: pointer;
+  padding: 0 24px;
+  box-shadow: 0 4px 8px rgba(70, 81, 91, 0.5);
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
 }
 
-@media (width<=991px) {
-  .videoFrame {
-    width: 90%;
-    height: auto;
+.recordButton:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 12px rgba(70, 81, 91, 0.5);
+}
+
+.recordButton:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 4px rgba(70, 81, 91, 0.5);
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+.buttonText {
+  color: white;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+@media (width <= 640px) {
+  .recordButton {
+    width: 70%;
   }
 }
 
-.faceScanOverlay {
-  pointer-events: none;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
+@media (width <= 480px) {
+  .recordButton {
+    width: 80%;
+    height: 45px;
+  }
+  .icon {
+    width: 20px;
+    height: 20px;
+  }
+  .buttonText {
+    font-size: 14px;
+  }
 }
 
-.recordButton {
+
+
+
+.faceRecordingSection {
+  /* border: 4px solid rgb(157, 255, 0); */
+  border-radius: 16px;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 250px;
-  height: 52px;
+  width: 100%;
+  margin: 20px auto;
+  padding: 0 10px;
+  max-width: min(1000px, 100% - 40px);
   display: flex;
-  border: none;
-  background: none;
-  cursor: pointer;
-  padding: 0;
+  overflow: hidden;
 }
 
-@media (width<=640px) {
-  .recordButton {
-    width: 90%;
+.webcamContainer {
+  width: 100%;
+  max-width: 650px;
+  aspect-ratio: 1.5;
+  border-radius: 16px;
+  overflow: hidden;
+  /* background: #000; */
+  /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
+
+  animation: borderBlink 2s ease-in-out infinite; /* Apply the blinking animation */
+  transition: border 0.5s ease; 
+}
+@keyframes borderBlink {
+  0%, 100% {
+    border: 2.5px solid white; /* Transparent border */
+  }
+  50% {
+    border: 2.5px solid #2181DA; 
+  }
+}
+.webcamPreview {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+}
+
+@media (max-width: 1200px) {
+  .webcamContainer {
+    max-width: 90%;
+  }
+}
+
+@media (max-width: 768px) {
+  .webcamContainer {
+    max-width: 95%;
+    /* aspect-ratio: auto; */
+  }
+}
+
+@media (max-width: 480px) {
+  .webcamContainer {
+    max-width: 100%;
+    /* aspect-ratio: auto; */
+    border-radius: 12px;
+  }
+
+}
+
+
+@media (max-width: 1200px) {
+  .webcamContainer {
+    max-width: 600px;
+  }
+}
+
+@media (max-width: 991px) {
+  .webcamContainer {
+    max-width: min(600px, 100%);
+  }
+
+  .faceRecordingSection {
+    max-width: min(991px, 100% - 32px);
+  }
+}
+
+@media (max-width: 768px) {
+  .webcamContainer {
+    max-width: min(500px, 100%);
+  }
+
+  .faceRecordingSection {
+    max-width: min(768px, 100% - 24px);
+    padding: 0 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .webcamContainer {
+    max-width: 100%;
+  }
+
+  .faceRecordingSection {
+    padding: 0 5px;
   }
 }

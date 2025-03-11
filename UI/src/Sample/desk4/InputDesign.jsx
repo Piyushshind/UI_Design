@@ -1,7 +1,6 @@
 "use client";
 import React from "react";
 import styles from "./InputDesign.module.css";
-// import BrowserHeader from "./BrowserHeader";
 import VideoRecorder from "./VideoRecorder";
 import InstructionBox from "./InstructionBox";
 import RecordButton from "./RecordButton";
