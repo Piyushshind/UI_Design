@@ -1,14 +1,16 @@
-import React from "react";
+import React, { useRef } from "react";
 import styles from "./CamRecorder.module.css";
 import Webcam from "react-webcam";
 
 function VideoRecorder() {
+  const webcamRef = useRef(null);
 
   return (
     <>
       <section className={styles.faceRecordingSection}>
         <div className={styles.webcamContainer}>
           <Webcam
+            ref={webcamRef}
             className={styles.webcamPreview}
             videoConstraints={{
               facingMode: "user",

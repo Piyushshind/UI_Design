@@ -6,9 +6,13 @@ import VideoRecorder from './VideoRecorder';
 import RecordButton from './RecordButton';
 import { useRecoilValue } from 'recoil';
 import { languageData } from '../../recoil/LanguageData/translations';
-import { languageState } from '../../recoil/atom';
+import { activateWebCamState, languageState } from '../../recoil/atom';
 
 const CamRecorder = () => {
+    const isRecordingEnabled = false;
+    const handleRecordClick = () => { }
+
+    const isWebcamActive = useRecoilValue(activateWebCamState);
     const selectedLanguage = useRecoilValue(languageState);
     const translations = languageData[selectedLanguage];
     return (
@@ -28,8 +32,8 @@ const CamRecorder = () => {
                         {translations.followInstructionsForRecording}
                     </p>
                     <InstructionBox translations={translations} />
-                    <VideoRecorder />
-                    <RecordButton translations={translations} />
+                    {isWebcamActive ? <VideoRecorder /> : " "}
+                    <RecordButton translations={translations} isEnabled={isRecordingEnabled} onClick={handleRecordClick} />
                 </section>
             </main>
         </>

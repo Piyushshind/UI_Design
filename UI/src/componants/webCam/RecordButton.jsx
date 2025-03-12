@@ -1,9 +1,13 @@
 import React from "react";
 import styles from "./CamRecorder.module.css";
 
-function RecordButton({ translations }) {
+function RecordButton({ translations, isEnabled = false, onClick }) {
   return (
-    <button className={styles.recordButton} aria-label="Start Recording">
+    <button className={styles.recordButton}
+      disabled={!isEnabled}
+      onClick={onClick}
+      aria-label={isEnabled ? "Start Recording" : "Recording not available"}
+    >
       <img src="./assets/videoIcon.svg" alt="video icon" className={styles.icon} />
       <span className={styles.buttonText}>{translations.startRecording}</span>
     </button>

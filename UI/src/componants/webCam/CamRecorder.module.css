@@ -86,18 +86,48 @@
     box-shadow: 0 4px 8px rgba(70, 81, 91, 0.5);
     transition:
         transform 0.2s,
-        box-shadow 0.2s;
+        box-shadow 0.2s,
+        opacity 0.2s,
+        background 0.3s;
 }
 
-.recordButton:hover {
+.recordButton:not(:disabled):hover {
     transform: translateY(-1px);
     box-shadow: 0 6px 12px rgba(70, 81, 91, 0.5);
 }
 
-.recordButton:active {
+.recordButton:not(:disabled):active {
     transform: translateY(1px);
     box-shadow: 0 2px 4px rgba(70, 81, 91, 0.5);
 }
+
+.recordButton:disabled {
+    background: linear-gradient(90deg, #cccccc 0%, #999999 100%);
+    cursor: not-allowed;
+    opacity: 0.7;
+    transform: none;
+    box-shadow: none;
+}
+
+.icon {
+    width: 24px;
+    height: 24px;
+    opacity: 1;
+    transition: opacity 0.2s;
+}
+
+.buttonText {
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    transition: opacity 0.2s;
+}
+
+.recordButton:disabled .icon,
+.recordButton:disabled .buttonText {
+    opacity: 0.7;
+}
+
 
 .icon {
     width: 24px;

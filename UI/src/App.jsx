@@ -12,7 +12,7 @@ function App() {
     <>
         {/* <HomePage /> */}
         {/* <SuccessPage /> */}
-        {/* <WebCamPage /> */}
+        <WebCamPage />
         {/* <InputDesign /> */}
         {/* <UnsuccessPage /> */}
     </>
