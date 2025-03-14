@@ -1,18 +1,35 @@
 import React from 'react'
 import styles from "./VerificationContent.module.css";
 import CustomButton from '../buttons/CustomButton';
-import { languageState, windowWidthState } from '../../recoil/atom'
+import { languageState } from '../../recoil/atom'
 import { languageData } from '../../recoil/LanguageData/translations'
+import useMediaPermissions from '../../hooks/useMediaPermissions';
+import AlertDialog from '../dialogueBox/AlertDialog';
 import { useRecoilValue } from 'recoil';
-import CustomLogoImage from '../company_logo/CustomLogoImage';
-
+import { useStoreCoordinates } from '../../hooks/useStoreCoordinates';
+import { useNavigate } from 'react-router-dom';
 const VerificationInfo = () => {
-    const windowWidth = useRecoilValue(windowWidthState);
-    const isMobile = windowWidth <= 991;
-
+    const navigate = useNavigate()
+    const storeCoordinates = useStoreCoordinates();
     const selectedLanguage = useRecoilValue(languageState);
     const translations = languageData[selectedLanguage];
+    const { isMobile, checkPermissions, retryPermissions, isDialogOpen, setIsDialogOpen } = useMediaPermissions(storeCoordinates);
 
+
+    const handleContinueClick = async () => {
+        await checkPermissions((permission) => {
+            console.log("permissionsGranted :- ", permission);
+            if (!permission) return
+            console.log("navigated ........");
+            navigate("/webcam")
+        })
+    }
+
+    const handleRetryPermissions = async () => {
+        retryPermissions((callback) => {
+            console.log("retrying for permissions .. ", callback);
+        })
+    }
     return (
         <>
             <article className={styles.infoColumn}>
@@ -27,9 +44,24 @@ const VerificationInfo = () => {
                             </p>
                         </div>
                     </div>
-                    {!isMobile ? <CustomButton className={styles.continueButton} btnContent={translations.continue} /> : null}
+                    {!isMobile ? <CustomButton onClick={handleContinueClick} className={styles.continueButton} btnContent={translations.continue} /> : null}
                 </div>
             </article>
+
+            <AlertDialog
+                isOpen={isDialogOpen}
+                onClose={() => setIsDialogOpen(false)}
+                title="Permissions Error"
+                message="Please check your browser settings and manually enable camera and microphone permissions if the pop-up does not appear."
+                primaryAction={{
+                    label: "Retry for Permissions",
+                    onClick: handleRetryPermissions,
+                }}
+                secondaryAction={{
+                    label: "Cancel",
+                    onClick: () => setIsDialogOpen(false),
+                }}
+            />
         </>
     )
 }

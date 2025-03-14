@@ -1,12 +1,13 @@
-const checkForMediaAccess = async () => {
+import { checkAndStoreGpsAvailability } from "./checkAndStoreGpsAvailability";
+
+const checkForMediaAccess = async (storeCoordinates) => {
+    console.log("retrying ...............");
+
     try {
-        // Request both audio and video permissions at the same time
+        const isGpsAvailable = await checkAndStoreGpsAvailability(storeCoordinates);
         const stream = await navigator.mediaDevices.getUserMedia({ audio: true, video: { facingMode: "user" } });
-
-        // Stop all tracks after getting the stream to release the media devices
         stream.getTracks().forEach(track => track.stop());
-
-        return { cameraGranted: true, microphoneGranted: true }; // Both permissions are granted
+        return { cameraGranted: true, microphoneGranted: true, isGpsAvailable: isGpsAvailable };
     } catch (error) {
         console.error("Error accessing media:", error);
 
@@ -23,13 +24,12 @@ const checkForMediaAccess = async () => {
             alert("An unknown error occurred while accessing media. Please try again later.");
         }
 
-        // Check which permission failed
         if (error.name === "NotAllowedError" || error.name === "OverconstrainedError" || error.name === "NotFoundError") {
             if (error.message.toLowerCase().includes("camera")) cameraGranted = false;
             if (error.message.toLowerCase().includes("microphone")) microphoneGranted = false;
         }
 
-        return { cameraGranted, microphoneGranted }; // Return specific states for each permission
+        return { cameraGranted, microphoneGranted, isGpsAvailable };
     }
 };
 

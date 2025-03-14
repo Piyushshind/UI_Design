@@ -29,3 +29,33 @@ export const permissionsState = atom({
   key: "permissionsState",
   default: false,
 });
+
+export const isValidHumanFaceDetectedState = atom({
+  key: "isValidHumanFaceDetectedState",
+  default: false,
+});
+
+export const setFaceDetectionWarnningsMassageState = atom({
+  key: "setFaceDetectionWarnningsMassageState",
+  default: false,
+});
+
+export const gpsCoordinatesState = atom({
+  key: "gpsCoordinatesState",
+  default: { latitude: null, longitude: null },
+});
+
+export const generatedOtpState = atom({
+  key: 'generatedOtpState',
+  default: null,
+});
+
+export const authState = atom({
+  key: 'authState',
+  default: {
+    isAuthenticated: false,
+    jwtToken: null,
+    customerId: null,
+    token: null
+  },
+});

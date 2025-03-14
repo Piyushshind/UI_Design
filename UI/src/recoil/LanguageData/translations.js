@@ -1,6 +1,10 @@
 export const languageData = {
     english: {
         verificationMessage: "Let’s verify your liveliness in 15 seconds",
+      /* `verificationRequired` is a key in the `languageData` object that stores the message
+      "Liveliness verification is necessary to proceed with your application." in both English and
+      Hindi languages. This message is displayed to the user to inform them that liveliness
+      verification is required in order to continue with their application. */
         verificationRequired: "Liveliness verification is necessary to proceed with your application.",
         lightingMessage: "Make sure you are in a well-lit, quiet place that is not in direct sunlight.",
         continue: "Continue",

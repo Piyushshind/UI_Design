@@ -1,0 +1,216 @@
+.errorContainer {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #f5f7fa 0%, #e4e9f2 100%);
+    padding: 20px;
+    font-family: "Urbanist", sans-serif;
+}
+
+.content {
+    max-width: 600px;
+    text-align: center;
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.animatedBank {
+    margin-bottom: 30px;
+}
+
+.bankBuilding {
+    width: 120px;
+    height: 100px;
+    background: #2181da;
+    margin: 0 auto;
+    position: relative;
+    border-radius: 10px;
+    animation: float 3s ease-in-out infinite;
+}
+
+.bankDoor {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 40px;
+    background: #e2f1ff;
+    border-radius: 5px 5px 0 0;
+}
+
+.bankWindows {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.bankWindows::before,
+.bankWindows::after {
+    content: "";
+    width: 20px;
+    height: 20px;
+    background: #e2f1ff;
+    border-radius: 4px;
+}
+
+.title {
+    font-size: 72px;
+    color: #2181da;
+    margin: 0;
+    font-weight: 700;
+    text-shadow: 2px 2px 0 #e2f1ff;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.subtitle {
+    font-size: 24px;
+    color: #333;
+    margin: 10px 0 30px;
+    font-weight: 600;
+}
+
+.messageBox {
+    background: #f8fafc;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+    border: 1px solid #e2e8f0;
+}
+
+.message {
+    color: #64748b;
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 0 0 15px;
+}
+
+.submessage {
+    color: #94a3b8;
+    font-size: 14px;
+    margin: 0;
+}
+
+.returnButton {
+    background: #2181da;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition:
+        transform 0.2s,
+        background-color 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.returnButton:hover {
+    background: #1a6cbd;
+    transform: translateY(-2px);
+}
+
+.buttonIcon {
+    font-size: 20px;
+}
+
+.securityBadge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 30px;
+    color: #64748b;
+    font-size: 14px;
+}
+
+.badgeIcon {
+    font-size: 18px;
+}
+
+.badgeText {
+    margin: 0;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .content {
+        padding: 30px;
+    }
+
+    .title {
+        font-size: 56px;
+    }
+
+    .subtitle {
+        font-size: 20px;
+    }
+
+    .bankBuilding {
+        width: 100px;
+        height: 80px;
+    }
+}
+
+@media (max-width: 480px) {
+    .content {
+        padding: 20px;
+    }
+
+    .title {
+        font-size: 48px;
+    }
+
+    .subtitle {
+        font-size: 18px;
+    }
+
+    .message {
+        font-size: 14px;
+    }
+
+    .bankBuilding {
+        width: 80px;
+        height: 60px;
+    }
+
+    .returnButton {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+}

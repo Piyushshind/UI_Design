@@ -1,0 +1,142 @@
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    animation: fadeIn 0.2s ease-out;
+}
+
+.dialog {
+    background: white;
+    border-radius: 12px;
+    padding: 24px;
+    max-width: 400px;
+    width: 90%;
+    position: relative;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    animation: slideIn 0.3s ease-out;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.title {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0;
+    flex-grow: 1;
+}
+
+.message {
+    color: #4a5568;
+    margin-bottom: 24px;
+    line-height: 1.5;
+}
+
+.actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+}
+
+.closeButton {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    color: #666;
+    border-radius: 50%;
+    transition: background-color 0.2s;
+}
+
+.closeButton:hover {
+    background-color: #f3f4f6;
+}
+
+.button {
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: none;
+}
+
+.primaryButton {
+    /* composes: button; */
+    background: #2181da;
+    color: white;
+}
+
+.primaryButton:hover {
+    background: #1a6cb7;
+}
+
+.secondaryButton {
+    /* composes: button; */
+    background: #e2e8f0;
+    color: #4a5568;
+}
+
+.secondaryButton:hover {
+    background: #cbd5e0;
+}
+
+.icon {
+    width: 24px;
+    height: 24px;
+}
+
+.error .icon {
+    color: #e53e3e;
+}
+
+.warning .icon {
+    color: #dd6b20;
+}
+
+.info .icon {
+    color: #3182ce;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@media (max-width: 640px) {
+    .dialog {
+        width: 95%;
+        margin: 16px;
+    }
+}
