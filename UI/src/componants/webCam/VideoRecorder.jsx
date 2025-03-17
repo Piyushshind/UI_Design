@@ -6,13 +6,13 @@ import { useRecoilState, useRecoilValue } from "recoil";
 import useFaceDetection from "../../hooks/useFaceDetection";
 
 function VideoRecorder({ webcamRef }) {
-  const [isRecording, setIsRecording] = useRecoilState(activateWebCamState);
+  const [isWebCamActive, setIsWebCamActive] = useRecoilState(activateWebCamState);
 
   const IsValidHumanFaceDetected = useRecoilValue(isValidHumanFaceDetectedState);
   const { startPreRecordingCheck } = useFaceDetection(webcamRef);
 
   if (!IsValidHumanFaceDetected) {
-    setIsRecording(true)
+    setIsWebCamActive(true)
     // console.log("startPreRecordingCheck started ..");
     startPreRecordingCheck();
     // console.log("startPreRecordingCheck has ended  ..");
@@ -23,7 +23,7 @@ function VideoRecorder({ webcamRef }) {
     <>
       <section className={styles.faceRecordingSection}>
         <div className={styles.webcamContainer}>
-          {isRecording &&
+          {isWebCamActive &&
             <Webcam
               ref={webcamRef}
               className={styles.webcamPreview}

@@ -20,16 +20,18 @@ const LivelinessSDK = () => {
                     `${customerId}/validate`,
                     { token: token },
                     { headers: { "Authorization": token } }
-                );
-
+                );     console.log("response from auth ", response);                           
                 if (response.status === 200) {
                     setAuth({
                         isAuthenticated: true,
                         jwtToken: response.data.JWT_TOKEN,
+                        usedCount: response.data.Used,
                         customerId: customerId,
                         token: token
                     });
-                    navigate("/home");
+                    console.log(auth);
+                    navigate("/home"); 
+                    
                 } else {
                     throw new Error("Token verification failed");
                 }

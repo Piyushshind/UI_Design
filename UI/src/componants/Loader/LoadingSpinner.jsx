@@ -1,24 +1,24 @@
 import React from "react";
 import styles from "./LoadingSpinner.module.css";
+import { StatusMessage } from "./StatusMessage";
 
 export function LoadingSpinner({ isFullScreen = false }) {
     return (
-        <div
-            className={`${styles.loaderContainer} ${isFullScreen ? styles.fullScreen : ""}`}
-        >
-            <div
-                className={styles.loaderWrapper}
-                role="alert"
-                aria-busy="true"
-                aria-label="Loading"
-            >
-                <img
-                    src="/assets/processing_loader.gif"
-                    alt="Loading..."
-                    className={styles.loaderGif}
-                />
-                <p className={styles.loadingText}>Processing your request...</p>
-            </div>
-        </div>
+        <>
+            <link
+                href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600&family=Inter:wght@600&display=swap"
+                rel="stylesheet"
+            />
+            <main className={styles.container}>
+                <section className={styles.contentWrapper}>
+                    <img
+                        src="/assets/processing_loader.gif"
+                        alt="Processing"
+                        className={styles.loaderImage}
+                    />
+                    <StatusMessage />
+                </section>
+            </main>
+        </>
     );
 }

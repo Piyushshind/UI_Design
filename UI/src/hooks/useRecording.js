@@ -3,8 +3,10 @@ import { getMimeType, startMediaStream } from "../methods/startMediaStream";
 import { postVideoData } from "../api/postVideoData";
 import { useRecoilValue, useSetRecoilState } from "recoil";
 import { activateWebCamState, authState, gpsCoordinatesState } from "../recoil/atom";
+import { useNavigate } from "react-router-dom";
 
 export const useRecording = (webcamRef, generatedOtp) => {
+    const navigate = useNavigate();
     const [videoBlob, setVideoBlob] = useState(null);
     const [isProcessing, setIsProcessing] = useState(false);
     const [timeRemaining, setTimeRemaining] = useState(15);
@@ -70,14 +72,18 @@ export const useRecording = (webcamRef, generatedOtp) => {
             const response = await postVideoData(videoBlob, gpsCoordinates, authStateObj, generatedOtp);
             setIsProcessing(false);
 
-            if (response.result.verfied) {
+            if (response.verfied) {
                 alert("Your verification was successful! ✅");
+                navigate("/success")
+
             } else {
                 alert("Verification not successful. Please try again. 🔄");
+                navigate("/fail", { state: { response: response } });
             }
         } catch (error) {
             setIsProcessing(false);
             alert(`Error: ${error.message}`);
+            navigate("*")
         }
     };
 

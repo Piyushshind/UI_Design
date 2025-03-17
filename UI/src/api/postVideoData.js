@@ -7,7 +7,8 @@ export const postVideoData = async (videoBlob, gpsCoordinates, authStateObj, gen
     const { customerId, token, jwtToken } = authStateObj;
     const formData = new FormData();
     formData.append("file", videoBlob);
-    formData.append("geoLocation", gpsCoordinates);
+    formData.append("longitude", gpsCoordinates.longitude);
+    formData.append("latitude", gpsCoordinates.latitude);
     formData.append("actualOTP", generatedOtp);
     formData.append("token", token);
     const dynamicUrl = `${API_URL}${customerId}/verifyVideo`;
@@ -15,7 +16,7 @@ export const postVideoData = async (videoBlob, gpsCoordinates, authStateObj, gen
     try {
         console.log("gpsCoordinates :- ", gpsCoordinates, "videoBlob :- ", videoBlob, "generatedOtp ", generatedOtp);
 
-        const response = await axios.post(dynamicUrl, formData, { headers: { "Authorization": jwtToken } });
+        const response = await axios.post(dynamicUrl, formData, { headers: { "Authorization": jwtToken }, withCredentials: true, });
         return response.data;
     } catch (error) {
         throw new Error("API Request failed: " + error.message);

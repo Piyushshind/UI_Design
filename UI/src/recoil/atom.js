@@ -54,6 +54,7 @@ export const authState = atom({
   key: 'authState',
   default: {
     isAuthenticated: false,
+    usedCount:0,
     jwtToken: null,
     customerId: null,
     token: null

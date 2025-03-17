@@ -6,9 +6,13 @@ import useMediaPermissions from '../../hooks/useMediaPermissions';
 import AlertDialog from '../dialogueBox/AlertDialog';
 import { useStoreCoordinates } from '../../hooks/useStoreCoordinates';
 import { useNavigate } from 'react-router-dom';
+import { useSetRecoilState } from 'recoil';
+import { activateWebCamState } from '../../recoil/atom';
 
 const VerificationIllustrationCarousel = () => {
     const storeCoordinates = useStoreCoordinates();
+    const setIsWebcamActive = useSetRecoilState(activateWebCamState);
+
     const navigate = useNavigate();
 
     const { isMobile, checkPermissions, retryPermissions, isDialogOpen, setIsDialogOpen } = useMediaPermissions(storeCoordinates);
@@ -18,6 +22,7 @@ const VerificationIllustrationCarousel = () => {
             console.log("permissionsGranted :- ", permission);
             if (!permission) return
             // console.log("navigated ........");
+            setIsWebcamActive(true);
             navigate("/webcam")
         })
     }

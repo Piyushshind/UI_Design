@@ -1,15 +1,30 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import HomePage from './pages/HomePage';
 import WebCamPage from './pages/WebCamPage';
 import SuccessPage from './pages/SuccessPage';
 import UnsuccessPage from './pages/UnsuccessPage';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useNavigate } from 'react-router-dom';
 import ErrorPageRoute from './pages/ErrorPageRoute';
 import ProtectedRoute from './SDK/ProtectedRoute';
 import LivelinessSDK from './SDK/LivelinessSDK';
 
 function App() {
 
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const preventBackAndForward = (e) => {
+      e.preventDefault();
+      navigate('*', { replace: true });
+      alert("navigation is disable")
+    };
+
+    window.addEventListener('popstate', preventBackAndForward);
+
+    return () => {
+      window.removeEventListener('popstate', preventBackAndForward);
+    };
+  }, [navigate]);
   return (
     <>
       <Routes>

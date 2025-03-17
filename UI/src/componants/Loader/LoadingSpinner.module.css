@@ -1,61 +1,81 @@
-.loaderContainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    background-color: rgba(255, 255, 255, 0.9);
-    z-index: 1000;
-}
-
-.fullScreen {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(255, 255, 255, 0.95);
-}
-
-.loaderWrapper {
-    display: flex;
+.container {
+    background-color: #fff;
     flex-direction: column;
     align-items: center;
-    gap: 16px;
+    width: 100%;
+    max-width: none;
+    /* min-height: 100vh; */
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
 }
 
-.loaderGif {
-    width: 100px;
-    height: 100px;
-    object-fit: contain;
-}
-
-.loadingText {
-    color: #2181da;
-    font-family: Urbanist, sans-serif;
-    font-size: 16px;
-    font-weight: 500;
+.contentWrapper {
     text-align: center;
+    flex-direction: column;
+    align-items: center;
+    display: flex;
+    margin-top: 120px;
+}
+
+.loaderImage {
+    margin-bottom: 30px;
+    width: 100px;
+    height: auto;
+}
+
+.title {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 1.4;
     margin: 0;
+    color: #2181da;
 }
 
-@media (max-width: 768px) {
-    .loaderGif {
+.subtitle {
+    color: #2181da;
+    margin-top: 20px;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 19px;
+    font-weight: 500;
+    margin-bottom: 0;
+}
+
+@media (width <=991px) {
+    .container {
+        max-width: 991px;
+    }
+
+    .contentWrapper {
+        margin-top: 100px;
+    }
+}
+
+@media (width <=640px) {
+    .container {
+        max-width: 640px;
+    }
+
+    .contentWrapper {
+        margin-top: 80px;
+    }
+
+    .loaderImage {
         width: 80px;
-        height: 80px;
     }
 
-    .loadingText {
-        font-size: 14px;
+    .title {
+        font-size: 24px;
+    }
+
+    .subtitle {
+        font-size: 16px;
     }
 }
 
-@media (max-width: 480px) {
-    .loaderGif {
-        width: 60px;
-        height: 60px;
-    }
-
-    .loadingText {
-        font-size: 12px;
+@media (max-height: 600px) {
+    .contentWrapper {
+        margin-top: 60px;
     }
 }

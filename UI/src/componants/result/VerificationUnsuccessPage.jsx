@@ -1,13 +1,48 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from './VerificationUnsuccessPage.module.css';
 import CustomLogoImage from '../company_logo/CustomLogoImage';
 import { useRecoilValue } from 'recoil';
-import { languageState } from '../../recoil/atom';
+import { authState, languageState } from '../../recoil/atom';
 import { languageData } from '../../recoil/LanguageData/translations';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const VerificationUnsuccessPage = () => {
     const selectedLanguage = useRecoilValue(languageState);
+    const authStatus = useRecoilValue(authState);
     const translations = languageData[selectedLanguage];
+    const location = useLocation();
+    const navigate = useNavigate();
+    const response = location.state?.response;
+    const [attemptUsedMessage, setAttemptUsedMessage] = useState(null);
+    const [reasonMessage, setReasonMessage] = useState('');
+
+    useEffect(() => {
+        if (response) {
+            if (response.status === 'IM_USED') {
+                console.warn(response.message);
+                setAttemptUsedMessage("Sorry! but you have already attempted 3 times");
+                alert(response.message);
+                console.log("from fail page ", response);
+            }
+            if (response.reasons) {
+                setReasonMessage(response.reasons[0] || "");
+            }
+        }
+    }, [response]);
+
+    const handleRecordAgain = () => {
+        const customerId = authStatus.customerId;
+        const token = authStatus.token;
+        console.log(authStatus);
+
+        if (customerId && token) {
+            navigate(`/customer/${customerId}/token/${token}`);
+        } else {
+            console.error('customerId or token not found in sessionStorage');
+            navigate('/error');
+        }
+    }
+
     return (
         <>
             <link
@@ -36,10 +71,11 @@ const VerificationUnsuccessPage = () => {
                                 {translations.verificationFailed}
                             </h1>
                             <p className={styles.description}>
-                                {translations.verificationFailedDueToTime}
+                                {reasonMessage}
+                                {/* {translations.verificationFailedDueToTime} */}
                             </p>
                         </div>
-                        <button className={styles.recordButton} aria-label="Record Again">
+                        <button className={styles.recordButton} aria-label="Record Again" onClick={handleRecordAgain}>
                             <div className={styles.buttonContent}>
                                 <img
                                     src="/assets/videoIcon.svg"
@@ -49,7 +85,8 @@ const VerificationUnsuccessPage = () => {
                                 <span className={styles.buttonText}>{translations.recordAgain}</span>
                             </div>
                         </button>
-                        <p className={styles.attemptsText}>{translations.attemptsLeft}</p>
+                        <p className={styles.attemptsText}>{authStatus.usedCount}{translations.attemptsLeft}</p>
+                        {attemptUsedMessage && <p className={styles.attemptsText}>{attemptUsedMessage}</p>}
                     </div>
                 </section>
             </main>

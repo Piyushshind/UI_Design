@@ -5,7 +5,9 @@ export const useStoreCoordinates = () => {
     const setCoordinates = useSetRecoilState(gpsCoordinatesState);
 
     const storeCoordinates = (coords) => {
-        setCoordinates({ latitude: coords.latitude, longitude: coords.longitude });
+        const latitude = coords.latitude || 0;
+        const longitude = coords.longitude || 0;
+        setCoordinates({ latitude: latitude, longitude: longitude });
         // alert(`Coordinates stored: Latitude ${coords.latitude}, Longitude ${coords.longitude}`);
     };
 

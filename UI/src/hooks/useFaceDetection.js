@@ -7,9 +7,19 @@ import * as faceapi from 'face-api.js';
 const useFaceDetection = (webcamRef) => {
     const [errorMessage, setErrorMessage] = useState(null);
     const modelsLoadedRef = useRef(false);
+    const isComponantMount = useRef(true);
     const setIsRecordingButtonEnabled = useSetRecoilState(recordingButtonEnableState);
     const setIsValidHumanFaceDetected = useSetRecoilState(isValidHumanFaceDetectedState);
     const setFaceDetectionWarnningsMassage = useSetRecoilState(setFaceDetectionWarnningsMassageState);
+
+
+
+    useEffect(() => {
+        return () => {
+            isComponantMount.current = false;
+        }
+    }, [])
+
 
     const startPreRecordingCheck = () => {
         let detectionCount = 0;
@@ -46,9 +56,11 @@ const useFaceDetection = (webcamRef) => {
         setTimeout(() => {
             if (detectionCount <= 5) {
                 clearInterval(detectionInterval);
-                setIsValidHumanFaceDetected(false);
-                setErrorMessage("No valid human face detected. Please try again.");
-                // console.log("No valid face detected in time.");
+                if (isComponantMount.current) {
+                    setIsValidHumanFaceDetected(false);
+                    setErrorMessage("No valid human face detected. Please try again.");
+                    console.log("No valid face detected in time.");
+                }
             }
         }, 30000);
     };
