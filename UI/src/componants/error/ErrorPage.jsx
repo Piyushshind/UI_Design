@@ -1,9 +1,22 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "./ErrorPage.module.css";
+import { useRecoilValue } from "recoil";
+import { authState } from "../../recoil/atom";
+import { useNavigate } from "react-router-dom";
 
 export function ErrorPage() {
+    const authStatus = useRecoilValue(authState);
+    const navigate = useNavigate();
+
     const handleReturnHome = () => {
-        window.location.href = "/"; // Or use your routing system's navigation
+        const customerId = authStatus.customerId;
+        const token = authStatus.token;
+        if (customerId && token) {
+            navigate(`/customer/${customerId}/token/${token}`);
+        } else {
+            console.error('customerId or token not found, the link has been expired');
+            navigate('/error');
+        }
     };
 
     return (
@@ -22,7 +35,10 @@ export function ErrorPage() {
                 <div className={styles.messageBox}>
                     <p className={styles.message}>
                         We're sorry, but this area is restricted. For security reasons,
-                        direct URL modifications are not allowed in our Video KYC system.
+                        direct URL modifications are not allowed in our Liveliness verification system.
+                    </p>
+                    <p className={styles.message}>
+                        The link (URL) you are trying to access has possibly expired.
                     </p>
                     <p className={styles.submessage}>
                         Please return to the authorized verification process.

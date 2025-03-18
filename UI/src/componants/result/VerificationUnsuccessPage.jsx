@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import styles from './VerificationUnsuccessPage.module.css';
 import CustomLogoImage from '../company_logo/CustomLogoImage';
-import { useRecoilValue } from 'recoil';
-import { authState, languageState } from '../../recoil/atom';
+import { useRecoilValue, useSetRecoilState } from 'recoil';
+import { authState, isValidHumanFaceDetectedState, languageState, recordingButtonEnableState } from '../../recoil/atom';
 import { languageData } from '../../recoil/LanguageData/translations';
 import { useLocation, useNavigate } from 'react-router-dom';
 
@@ -15,14 +15,18 @@ const VerificationUnsuccessPage = () => {
     const response = location.state?.response;
     const [attemptUsedMessage, setAttemptUsedMessage] = useState(null);
     const [reasonMessage, setReasonMessage] = useState('');
+    const setIsValidHumanFaceDetected = useSetRecoilState(isValidHumanFaceDetectedState);
+    const setIsRecordingButtonEnabled = useSetRecoilState(recordingButtonEnableState);
+
+
 
     useEffect(() => {
         if (response) {
             if (response.status === 'IM_USED') {
                 console.warn(response.message);
                 setAttemptUsedMessage("Sorry! but you have already attempted 3 times");
-                alert(response.message);
-                console.log("from fail page ", response);
+                // alert(response.message);
+                // console.log("from fail page ", response);
             }
             if (response.reasons) {
                 setReasonMessage(response.reasons[0] || "");
@@ -33,12 +37,14 @@ const VerificationUnsuccessPage = () => {
     const handleRecordAgain = () => {
         const customerId = authStatus.customerId;
         const token = authStatus.token;
-        console.log(authStatus);
+        // console.log(authStatus);
 
         if (customerId && token) {
+            setIsValidHumanFaceDetected(false);
+            setIsRecordingButtonEnabled(false)
             navigate(`/customer/${customerId}/token/${token}`);
         } else {
-            console.error('customerId or token not found in sessionStorage');
+            console.error('customerId or token not found');
             navigate('/error');
         }
     }
@@ -85,7 +91,7 @@ const VerificationUnsuccessPage = () => {
                                 <span className={styles.buttonText}>{translations.recordAgain}</span>
                             </div>
                         </button>
-                        <p className={styles.attemptsText}>{authStatus.usedCount}{translations.attemptsLeft}</p>
+                        <p className={styles.attemptsText}>{(3 - authStatus.usedCount)}{translations.attemptsLeft}</p>
                         {attemptUsedMessage && <p className={styles.attemptsText}>{attemptUsedMessage}</p>}
                     </div>
                 </section>

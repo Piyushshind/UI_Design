@@ -1,7 +1,7 @@
 import { checkAndStoreGpsAvailability } from "./checkAndStoreGpsAvailability";
 
 const checkForMediaAccess = async (storeCoordinates) => {
-    console.log("retrying ...............");
+    // console.log("retrying ...............");
 
     try {
         const isGpsAvailable = await checkAndStoreGpsAvailability(storeCoordinates);

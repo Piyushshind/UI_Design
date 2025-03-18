@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "./CamRecorder.module.css";
 import Webcam from "react-webcam";
 import { activateWebCamState, isValidHumanFaceDetectedState } from "../../recoil/atom";
@@ -11,13 +11,14 @@ function VideoRecorder({ webcamRef }) {
   const IsValidHumanFaceDetected = useRecoilValue(isValidHumanFaceDetectedState);
   const { startPreRecordingCheck } = useFaceDetection(webcamRef);
 
-  if (!IsValidHumanFaceDetected) {
-    setIsWebCamActive(true)
-    // console.log("startPreRecordingCheck started ..");
-    startPreRecordingCheck();
-    // console.log("startPreRecordingCheck has ended  ..");
+  useEffect(() => {
+    // console.log("useEffect runs IsValidHumanFaceDetected :- ", IsValidHumanFaceDetected,);
 
-  }
+    if (!IsValidHumanFaceDetected) {
+      setIsWebCamActive(true);
+      startPreRecordingCheck();
+    }
+  }, [IsValidHumanFaceDetected]);
 
   return (
     <>

@@ -214,3 +214,104 @@
         font-size: 14px;
     }
 }
+
+
+/* warning banner  */
+
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modalContent {
+    background-color: white;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+.modalHeader {
+    background-color: #fff3cd;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #ffc107;
+}
+
+.modalTitle {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: #664d03;
+    margin: 0;
+}
+
+.modalBody {
+    padding: 20px;
+}
+
+.modalFooter {
+    padding: 16px;
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid #e9ecef;
+}
+
+.modalButton {
+    background-color: #2181da;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.modalButton:hover {
+    background-color: #1a6db3;
+}
+
+.warningIcon {
+    font-size: 24px;
+    margin-right: 12px;
+}
+
+.warningText {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 16px;
+    color: #333;
+    margin: 0 0 12px 0;
+    text-align: center;
+}
+
+.warningText:last-child {
+    margin-bottom: 0;
+}
+
+@media(width <=640px) {
+    .modalTitle {
+        font-size: 18px;
+    }
+
+    .warningText {
+        font-size: 14px;
+    }
+
+    .modalButton {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+}

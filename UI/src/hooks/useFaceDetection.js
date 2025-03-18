@@ -1,17 +1,16 @@
 import { useState, useRef, useEffect } from 'react';
 import { useSetRecoilState } from 'recoil';
-import { recordingButtonEnableState, isValidHumanFaceDetectedState, setFaceDetectionWarnningsMassageState } from '../recoil/atom.js';
+import { recordingButtonEnableState, isValidHumanFaceDetectedState, setPreRecordingErrorMessageState } from '../recoil/atom.js';
 import { isValidHumanFace } from '../methods/isValidHumanFace';
 import * as faceapi from 'face-api.js';
 
 const useFaceDetection = (webcamRef) => {
+    const setPreRecordingErrorMessage = useSetRecoilState(setPreRecordingErrorMessageState)
     const [errorMessage, setErrorMessage] = useState(null);
     const modelsLoadedRef = useRef(false);
     const isComponantMount = useRef(true);
     const setIsRecordingButtonEnabled = useSetRecoilState(recordingButtonEnableState);
     const setIsValidHumanFaceDetected = useSetRecoilState(isValidHumanFaceDetectedState);
-    const setFaceDetectionWarnningsMassage = useSetRecoilState(setFaceDetectionWarnningsMassageState);
-
 
 
     useEffect(() => {
@@ -24,9 +23,10 @@ const useFaceDetection = (webcamRef) => {
     const startPreRecordingCheck = () => {
         let detectionCount = 0;
         let stopDetection = false;
-
+        // setPreRecordingErrorMessage('');
+        console.log("startPreRecordingCheck is running ");
         const detectionInterval = setInterval(async () => {
-            // console.log("detectionInterval is running ");
+            console.log("detectionInterval is running ");
 
             if (stopDetection) return;  // Stop detection if already successful
 
@@ -58,7 +58,7 @@ const useFaceDetection = (webcamRef) => {
                 clearInterval(detectionInterval);
                 if (isComponantMount.current) {
                     setIsValidHumanFaceDetected(false);
-                    setErrorMessage("No valid human face detected. Please try again.");
+                    setPreRecordingErrorMessage("No valid human face detected. Please try again.");
                     console.log("No valid face detected in time.");
                 }
             }
@@ -87,7 +87,7 @@ const useFaceDetection = (webcamRef) => {
         loadModels();
     }, []);
 
-    return { startPreRecordingCheck, errorMessage };
+    return { startPreRecordingCheck };
 };
 
 export default useFaceDetection;

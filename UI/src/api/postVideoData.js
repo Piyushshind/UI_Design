@@ -14,7 +14,7 @@ export const postVideoData = async (videoBlob, gpsCoordinates, authStateObj, gen
     const dynamicUrl = `${API_URL}${customerId}/verifyVideo`;
 
     try {
-        console.log("gpsCoordinates :- ", gpsCoordinates, "videoBlob :- ", videoBlob, "generatedOtp ", generatedOtp);
+        // console.log("gpsCoordinates :- ", gpsCoordinates, "videoBlob :- ", videoBlob, "generatedOtp ", generatedOtp);
 
         const response = await axios.post(dynamicUrl, formData, { headers: { "Authorization": jwtToken }, withCredentials: true, });
         return response.data;

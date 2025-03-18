@@ -8,6 +8,7 @@ import AlertDialog from '../dialogueBox/AlertDialog';
 import { useRecoilValue } from 'recoil';
 import { useStoreCoordinates } from '../../hooks/useStoreCoordinates';
 import { useNavigate } from 'react-router-dom';
+
 const VerificationInfo = () => {
     const navigate = useNavigate()
     const storeCoordinates = useStoreCoordinates();
@@ -18,9 +19,9 @@ const VerificationInfo = () => {
 
     const handleContinueClick = async () => {
         await checkPermissions((permission) => {
-            console.log("permissionsGranted :- ", permission);
+            // console.log("permissionsGranted :- ", permission);
             if (!permission) return
-            console.log("navigated ........");
+            // console.log("navigated ........");
             navigate("/webcam")
         })
     }
@@ -30,6 +31,7 @@ const VerificationInfo = () => {
             console.log("retrying for permissions .. ", callback);
         })
     }
+    
     return (
         <>
             <article className={styles.infoColumn}>

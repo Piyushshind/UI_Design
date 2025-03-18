@@ -7,10 +7,27 @@ import { Route, Routes, useNavigate } from 'react-router-dom';
 import ErrorPageRoute from './pages/ErrorPageRoute';
 import ProtectedRoute from './SDK/ProtectedRoute';
 import LivelinessSDK from './SDK/LivelinessSDK';
+import { WarningBanner } from './componants/error/WarningBanner';
 
 function App() {
 
   const navigate = useNavigate();
+
+  useEffect(() => {
+    // Warn before unload
+    const handleBeforeUnload = (e) => {
+      const message =
+        "Leaving this page will terminate the verification process.";
+      e.returnValue = message;
+      return message;
+    };
+
+    window.addEventListener("beforeunload", handleBeforeUnload);
+
+    return () => {
+      window.removeEventListener("beforeunload", handleBeforeUnload);
+    };
+  }, []);
 
   useEffect(() => {
     const preventBackAndForward = (e) => {
@@ -27,6 +44,7 @@ function App() {
   }, [navigate]);
   return (
     <>
+      <WarningBanner />
       <Routes>
         <Route path="/customer/:customerId/token/:token" element={<LivelinessSDK />} />
         <Route path="*" element={<ErrorPageRoute />} />

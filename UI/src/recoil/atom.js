@@ -50,11 +50,16 @@ export const generatedOtpState = atom({
   default: null,
 });
 
+export const setPreRecordingErrorMessageState = atom({
+  key: 'setPreRecordingErrorMessageState',
+  default:'',
+});
+
 export const authState = atom({
   key: 'authState',
   default: {
     isAuthenticated: false,
-    usedCount:0,
+    usedCount: 0,
     jwtToken: null,
     customerId: null,
     token: null

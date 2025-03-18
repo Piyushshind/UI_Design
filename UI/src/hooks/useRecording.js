@@ -72,7 +72,7 @@ export const useRecording = (webcamRef, generatedOtp) => {
             const response = await postVideoData(videoBlob, gpsCoordinates, authStateObj, generatedOtp);
             setIsProcessing(false);
 
-            if (response.verfied) {
+            if (response.verified) {
                 alert("Your verification was successful! ✅");
                 navigate("/success")
 
