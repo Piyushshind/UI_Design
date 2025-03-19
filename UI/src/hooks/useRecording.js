@@ -1,18 +1,19 @@
 import { useState, useRef, useEffect } from "react";
 import { getMimeType, startMediaStream } from "../methods/startMediaStream";
 import { postVideoData } from "../api/postVideoData";
-import { useRecoilValue, useSetRecoilState } from "recoil";
+import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
 import { activateWebCamState, authState, gpsCoordinatesState } from "../recoil/atom";
 import { useNavigate } from "react-router-dom";
 
 export const useRecording = (webcamRef, generatedOtp) => {
+
     const navigate = useNavigate();
     const [videoBlob, setVideoBlob] = useState(null);
     const [isProcessing, setIsProcessing] = useState(false);
     const [timeRemaining, setTimeRemaining] = useState(15);
     const mediaRecorderRef = useRef(null);
     const gpsCoordinates = useRecoilValue(gpsCoordinatesState);
-    const authStateObj = useRecoilValue(authState);
+    const [authStateObj, setAuthStateObj] = useRecoilState(authState);
     const setIsRecording = useSetRecoilState(activateWebCamState);
 
 
@@ -48,7 +49,7 @@ export const useRecording = (webcamRef, generatedOtp) => {
             countdown--;
             setTimeRemaining(countdown);
             if (countdown === 0) {
-                console.log("mediaRecorder stoped ", videoBlob);
+                // console.log("mediaRecorder stoped ", videoBlob);
 
                 mediaRecorder.stop();
                 clearInterval(timer);
@@ -64,7 +65,7 @@ export const useRecording = (webcamRef, generatedOtp) => {
     }, [videoBlob])
 
     const handlePostVideoData = async (videoBlob) => {
-        console.log("handlePostVideoData called ..");
+        // console.log("handlePostVideoData called ..");
 
         setIsProcessing(true);
         try {
@@ -72,18 +73,24 @@ export const useRecording = (webcamRef, generatedOtp) => {
             const response = await postVideoData(videoBlob, gpsCoordinates, authStateObj, generatedOtp);
             setIsProcessing(false);
 
+            setAuthStateObj(prevState => ({
+                ...prevState,
+                usedCount: 1 + Number(prevState.usedCount) 
+            }));
+
             if (response.verified) {
-                alert("Your verification was successful! ✅");
-                navigate("/success")
+                // alert("Your verification was successful! ✅");
+                navigate("/success", { replace: true })
+
 
             } else {
-                alert("Verification not successful. Please try again. 🔄");
-                navigate("/fail", { state: { response: response } });
+                // alert("Verification not successful. Please try again. 🔄");
+                navigate("/fail", { state: { response: response }, replace: true });
             }
         } catch (error) {
             setIsProcessing(false);
             alert(`Error: ${error.message}`);
-            navigate("*")
+            navigate("*", { replace: true })
         }
     };
 

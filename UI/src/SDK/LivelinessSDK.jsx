@@ -29,8 +29,12 @@ const LivelinessSDK = () => {
                         customerId: customerId,
                         token: token
                     });
+                    if(response.data.Used >=3){
+                        navigate("/fail", { replace: true })
+                        return
+                    }
                     // console.log(auth);
-                    navigate("/home");
+                    navigate("/home", { replace: true });
 
                 } else {
                     throw new Error("Token verification failed");

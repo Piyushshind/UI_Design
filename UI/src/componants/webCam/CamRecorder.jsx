@@ -10,15 +10,17 @@ import { activateWebCamState, languageState, recordingButtonEnableState } from '
 import { useRecording } from '../../hooks/useRecording';
 import TimeRemainingStatus from './TimeRemainingStatus';
 import { LoadingSpinner } from '../Loader/LoadingSpinner';
+import useFaceDetection from '../../hooks/useFaceDetection';
 
 const CamRecorder = () => {
+    const webcamRef = useRef();
     const selectedLanguage = useRecoilValue(languageState);
     const translations = languageData[selectedLanguage];
-    const webcamRef = useRef();
     const [generatedOtp, setGeneratedOtp] = useState(null);
     const [isRecorderbuttonClicked, setIsRecorderbuttonClicked] = useState(false);
+    const { startPreRecordingCheck } = useFaceDetection(webcamRef);
 
-    const isWebcamActive = useRecoilValue(activateWebCamState);
+    // const isWebcamActive = useRecoilValue(activateWebCamState);
     const isRecordingButtonEnabled = useRecoilValue(recordingButtonEnableState);
     const { startRecording, videoBlob, isProcessing, timeRemaining } = useRecording(webcamRef, generatedOtp);
     const isRecordingStarted = false;
@@ -49,10 +51,10 @@ const CamRecorder = () => {
                                     <p className={styles.instructionText}>
                                         {isRecordingButtonEnabled ? translations.speakOutLoud : translations.followInstructionsForRecording}
                                     </p>
-                                    <InstructionBox translations={translations} generatedOtp={generatedOtp} />
+                                    <InstructionBox translations={translations} generatedOtp={generatedOtp} startPreRecordingCheck={startPreRecordingCheck} />
                                     {/* <h3>timeRemaining :- {timeRemaining}</h3> */}
                                     {/* {isProcessing && <h1>Loading ...</h1>} */}
-                                    <VideoRecorder webcamRef={webcamRef} />
+                                    <VideoRecorder webcamRef={webcamRef} startPreRecordingCheck={startPreRecordingCheck} />
                                     {/* {isWebcamActive ? <VideoRecorder /> : " "} */}
                                     {isRecorderbuttonClicked ? <TimeRemainingStatus /> : <RecordButton translations={translations} isEnabled={isRecordingButtonEnabled} onClick={handleRecordClick} />}
                                 </>

@@ -16,7 +16,7 @@ const VerificationIllustrationCarousel = () => {
     const handleContinueClick = async () => {
         await checkPermissions((permission) => {
             if (!permission) return
-            navigate("/webcam")
+            navigate("/webcam", { replace: true })
         })
     }
     const handleRetryPermissions = async () => {

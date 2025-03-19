@@ -42,10 +42,10 @@ const VerificationUnsuccessPage = () => {
         if (customerId && token) {
             setIsValidHumanFaceDetected(false);
             setIsRecordingButtonEnabled(false)
-            navigate(`/customer/${customerId}/token/${token}`);
+            navigate(`/customer/${customerId}/token/${token}`, { replace: true });
         } else {
             console.error('customerId or token not found');
-            navigate('/error');
+            navigate('/error', { replace: true });
         }
     }
 
@@ -91,7 +91,8 @@ const VerificationUnsuccessPage = () => {
                                 <span className={styles.buttonText}>{translations.recordAgain}</span>
                             </div>
                         </button>
-                        <p className={styles.attemptsText}>{(3 - authStatus.usedCount)}{translations.attemptsLeft}</p>
+                        
+                        <p className={styles.attemptsText}>{(3 - (authStatus.usedCount))}{translations.attemptsLeft}</p>
                         {attemptUsedMessage && <p className={styles.attemptsText}>{attemptUsedMessage}</p>}
                     </div>
                 </section>

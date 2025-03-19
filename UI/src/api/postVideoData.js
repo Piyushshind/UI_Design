@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:8080/api/v2/patrons/";
+const API_URL = "https://192.168.43.208/api/v2/patrons/"; // 192.168.43.208  // localhost:8080
 
 export const postVideoData = async (videoBlob, gpsCoordinates, authStateObj, generatedOtp) => {
     // console.log('api heats...... ');

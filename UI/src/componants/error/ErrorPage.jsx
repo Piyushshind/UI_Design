@@ -12,10 +12,10 @@ export function ErrorPage() {
         const customerId = authStatus.customerId;
         const token = authStatus.token;
         if (customerId && token) {
-            navigate(`/customer/${customerId}/token/${token}`);
+            navigate(`/customer/${customerId}/token/${token}`, { replace: true });
         } else {
             console.error('customerId or token not found, the link has been expired');
-            navigate('/error');
+            navigate('/error',{ replace: true });
         }
     };
 

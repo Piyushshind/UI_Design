@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react';
+import {  useRef, useEffect } from 'react';
 import { useSetRecoilState } from 'recoil';
 import { recordingButtonEnableState, isValidHumanFaceDetectedState, setPreRecordingErrorMessageState } from '../recoil/atom.js';
 import { isValidHumanFace } from '../methods/isValidHumanFace';
@@ -6,7 +6,6 @@ import * as faceapi from 'face-api.js';
 
 const useFaceDetection = (webcamRef) => {
     const setPreRecordingErrorMessage = useSetRecoilState(setPreRecordingErrorMessageState)
-    const [errorMessage, setErrorMessage] = useState(null);
     const modelsLoadedRef = useRef(false);
     const isComponantMount = useRef(true);
     const setIsRecordingButtonEnabled = useSetRecoilState(recordingButtonEnableState);
@@ -23,10 +22,10 @@ const useFaceDetection = (webcamRef) => {
     const startPreRecordingCheck = () => {
         let detectionCount = 0;
         let stopDetection = false;
-        // setPreRecordingErrorMessage('');
-        console.log("startPreRecordingCheck is running ");
+        setPreRecordingErrorMessage('');
+        // console.log("startPreRecordingCheck is running ");
         const detectionInterval = setInterval(async () => {
-            console.log("detectionInterval is running ");
+            // console.log("detectionInterval is running ");
 
             if (stopDetection) return;  // Stop detection if already successful
 
@@ -68,7 +67,6 @@ const useFaceDetection = (webcamRef) => {
     useEffect(() => {
         const loadModels = async () => {
             if (modelsLoadedRef.current) {
-                // console.log("Models already loaded, skipping load.");
                 return;
             }
             try {

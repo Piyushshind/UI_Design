@@ -22,7 +22,7 @@ const VerificationInfo = () => {
             // console.log("permissionsGranted :- ", permission);
             if (!permission) return
             // console.log("navigated ........");
-            navigate("/webcam")
+            navigate("/webcam", { replace: true })
         })
     }
 

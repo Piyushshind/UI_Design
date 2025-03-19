@@ -3,15 +3,16 @@ import HomePage from './pages/HomePage';
 import WebCamPage from './pages/WebCamPage';
 import SuccessPage from './pages/SuccessPage';
 import UnsuccessPage from './pages/UnsuccessPage';
-import { Route, Routes, useNavigate } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import ErrorPageRoute from './pages/ErrorPageRoute';
 import ProtectedRoute from './SDK/ProtectedRoute';
 import LivelinessSDK from './SDK/LivelinessSDK';
 import { WarningBanner } from './componants/error/WarningBanner';
 
+
 function App() {
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   useEffect(() => {
     // Warn before unload
@@ -29,23 +30,25 @@ function App() {
     };
   }, []);
 
-  useEffect(() => {
-    const preventBackAndForward = (e) => {
-      e.preventDefault();
-      navigate('*', { replace: true });
-      alert("navigation is disable")
-    };
+  // useEffect(() => {
+  //   window.history.pushState(null, "", window.location.href);
+  //   const preventBackAndForward = (e) => {
+  //     e.preventDefault();
+  //     navigate('*', { replace: true });
+  //     alert("navigation is disable")
+  //   };
 
-    window.addEventListener('popstate', preventBackAndForward);
+  //   window.addEventListener('popstate', preventBackAndForward);
 
-    return () => {
-      window.removeEventListener('popstate', preventBackAndForward);
-    };
-  }, [navigate]);
+  //   return () => {
+  //     window.removeEventListener('popstate', preventBackAndForward);
+  //   };
+  // }, [navigate]);
   return (
     <>
       <WarningBanner />
       <Routes>
+        <Route path="/" element={<Navigate to={"/customer/:customerId/token/:token"} replace={true} />} />
         <Route path="/customer/:customerId/token/:token" element={<LivelinessSDK />} />
         <Route path="*" element={<ErrorPageRoute />} />
         <Route element={<ProtectedRoute />}>
