@@ -39,7 +39,7 @@ const CamRecorder = () => {
             />
             <main className={styles.container}>
                 <CustomLogoImage
-                    src="assets/netwin_logo.svg"
+                    src={`${import.meta.env.VITE_APP_ASSETS_PATH}netwin_logo.svg`}
                     alt="Netwin Logo"
                     className={styles.logo}
                 />

@@ -15,7 +15,7 @@ const VerificationSuccessPage = () => {
             <main className={styles.container}>
                 <header className={styles.logoHeader}>
                     <CustomLogoImage
-                        src="/assets/netwin_logo.svg"
+                        src={`${import.meta.env.VITE_APP_ASSETS_PATH}netwin_logo.svg`}
                         alt="Netwin logo"
                         className={styles.logo}
                     />
@@ -24,7 +24,7 @@ const VerificationSuccessPage = () => {
                     <div className={styles.contentWrapper}>
                         <div className={styles.imageWrapper}>
                             <img
-                                src="/assets/verificationSuccessfullImage.svg"
+                                src={`${import.meta.env.VITE_APP_ASSETS_PATH}verificationSuccessfullImage.svg`}
                                 alt="Verification successful"
                                 className={styles.verificationIcon}
                             />

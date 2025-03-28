@@ -35,9 +35,9 @@ const LanguageSelector = () => {
         aria-expanded={isOpen}
         aria-haspopup="true"
       >
-        <img
+        <img // "/Liveliness/assets/Language_Selector_Icon.svg"
           src="https://cdn.builder.io/api/v1/image/assets/8b66844651b44a489c194c6e646c2609/c7764600a11fa6cb5a043861a0140b9d3eb93fd5e85a20371dd63c6dc8b0d66d?placeholderIfAbsent=true"
-          alt="Language Selection"
+          alt="Language_Selection"
           className={styles.languageIcon}
         />
       </button>

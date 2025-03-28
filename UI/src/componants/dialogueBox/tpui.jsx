@@ -50,9 +50,9 @@ useEffect(() => {
         }
         try {
             await Promise.all([
-                faceapi.nets.tinyFaceDetector.loadFromUri('/models'),
-                faceapi.nets.faceLandmark68Net.loadFromUri('/models'),
-                faceapi.nets.faceExpressionNet.loadFromUri('/models'),
+                faceapi.nets.tinyFaceDetector.loadFromUri('/Liveliness/models'),
+                faceapi.nets.faceLandmark68Net.loadFromUri('/Liveliness/models'),
+                faceapi.nets.faceExpressionNet.loadFromUri('/Liveliness/models'),
             ]);
             modelsLoadedRef.current = true;
             console.log("Models loaded successfully.");

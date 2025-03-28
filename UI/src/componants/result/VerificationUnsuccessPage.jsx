@@ -58,7 +58,7 @@ const VerificationUnsuccessPage = () => {
             <main className={styles.container}>
                 <header className={styles.header}>
                     <CustomLogoImage
-                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/74136ccedf5ef038047d0276d296549d00b6016c"
+                        src={`${import.meta.env.VITE_APP_ASSETS_PATH}netwin_logo.svg`}
                         alt="Logo"
                         className={styles.logo}
                     />
@@ -67,7 +67,7 @@ const VerificationUnsuccessPage = () => {
                     <div className={styles.contentWrapper}>
                         <div className={styles.iconWrapper}>
                             <CustomLogoImage
-                                src="/assets/UnsuccessfullImage.svg"
+                                src={`${import.meta.env.VITE_APP_ASSETS_PATH}UnsuccessfullImage.svg`}
                                 alt="Verification Unsuccessful"
                                 className={styles.warningIcon}
                             />
@@ -84,14 +84,14 @@ const VerificationUnsuccessPage = () => {
                         <button className={styles.recordButton} aria-label="Record Again" onClick={handleRecordAgain}>
                             <div className={styles.buttonContent}>
                                 <img
-                                    src="/assets/videoIcon.svg"
-                                    alt=""
+                                    src={`${import.meta.env.VITE_APP_ASSETS_PATH}videoIcon.svg`}
+                                    alt="videoIcon"
                                     className={styles.recordIcon}
                                 />
                                 <span className={styles.buttonText}>{translations.recordAgain}</span>
                             </div>
                         </button>
-                        
+
                         <p className={styles.attemptsText}>{(3 - (authStatus.usedCount))}{translations.attemptsLeft}</p>
                         {attemptUsedMessage && <p className={styles.attemptsText}>{attemptUsedMessage}</p>}
                     </div>

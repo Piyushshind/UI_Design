@@ -8,7 +8,7 @@ function RecordButton({ translations, isEnabled = false, onClick }) {
       onClick={onClick}
       aria-label={isEnabled ? "Start Recording" : "Recording not available"}
     >
-      <img src="./assets/videoIcon.svg" alt="video icon" className={styles.icon} />
+      <img src={`${import.meta.env.VITE_APP_ASSETS_PATH}videoIcon.svg`} alt="video icon" className={styles.icon} />
       <span className={styles.buttonText}>{translations.startRecording}</span>
     </button>
   );

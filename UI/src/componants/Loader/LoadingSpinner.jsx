@@ -12,7 +12,7 @@ export function LoadingSpinner({ isFullScreen = false }) {
             <main className={styles.container}>
                 <section className={styles.contentWrapper}>
                     <img
-                        src="/assets/processing_loader.gif"
+                        src={`${import.meta.env.VITE_APP_ASSETS_PATH}processing_loader.gif`}
                         alt="Processing"
                         className={styles.loaderImage}
                     />

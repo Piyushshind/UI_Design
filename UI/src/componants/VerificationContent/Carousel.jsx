@@ -12,17 +12,17 @@ const Carousel = () => {
 
   const slides = [
     {
-      image: "/assets/carousel_image1.jpg",
+      image: `${import.meta.env.VITE_APP_ASSETS_PATH}carousel_image1.jpg`,
       alt: "Verification Illustration 1",
       legend: translations.lightingMessage
     },
     {
-      image: "/assets/carousel_image2.jpg",
+      image: `${import.meta.env.VITE_APP_ASSETS_PATH}carousel_image2.jpg`,
       alt: "Verification Illustration 2",
       legend: translations.faceVisibleMessage
     },
     {
-      image: "/assets/carousel_image3.jpg",
+      image: `${import.meta.env.VITE_APP_ASSETS_PATH}carousel_image3.jpg`,
       alt: "Verification Illustration 3",
       legend: translations.avoidCoveringFace
     },

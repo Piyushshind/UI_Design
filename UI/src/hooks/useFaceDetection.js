@@ -43,7 +43,7 @@ const useFaceDetection = (webcamRef) => {
                 }
             }
 
-            if (detectionCount > 5) {
+            if (detectionCount > 3) {
                 stopDetection = true;
                 clearInterval(detectionInterval);
                 setIsValidHumanFaceDetected(true);
@@ -53,7 +53,7 @@ const useFaceDetection = (webcamRef) => {
         }, 1000);
 
         setTimeout(() => {
-            if (detectionCount <= 5) {
+            if (detectionCount <= 3) {
                 clearInterval(detectionInterval);
                 if (isComponantMount.current) {
                     setIsValidHumanFaceDetected(false);
@@ -61,7 +61,7 @@ const useFaceDetection = (webcamRef) => {
                     console.log("No valid face detected in time.");
                 }
             }
-        }, 30000);
+        }, 20000);
     };
 
     useEffect(() => {
@@ -70,10 +70,10 @@ const useFaceDetection = (webcamRef) => {
                 return;
             }
             try {
+                const MODELS_PATH = import.meta.env.VITE_APP_MODELS_PATH;
                 await Promise.all([
-                    faceapi.nets.tinyFaceDetector.loadFromUri('/models'),
-                    faceapi.nets.faceLandmark68Net.loadFromUri('/models'),
-                    faceapi.nets.faceExpressionNet.loadFromUri('/models'),
+                    faceapi.nets.tinyFaceDetector.loadFromUri(MODELS_PATH),
+                    faceapi.nets.faceLandmark68Net.loadFromUri(MODELS_PATH),
                 ]);
                 modelsLoadedRef.current = true;
                 // console.log("Models loaded successfully.");

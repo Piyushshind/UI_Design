@@ -8,6 +8,8 @@ export const isValidHumanFace = (landmarks) => {
         const rightEyebrow = landmarks.getRightEyeBrow();
         const leftEyebrow = landmarks.getLeftEyeBrow();
 
+        // console.log("leftEye :- ", leftEye, "rightEye :- ", rightEye, "nose :- ", nose, "mouth :- ", mouth, "jawOutline :- ", jawOutline, "rightEyebrow  :- ", rightEyebrow, "leftEyebrow :- ", leftEyebrow);
+
         if (!leftEye || !rightEye || !nose || !mouth || !jawOutline || !rightEyebrow || !leftEyebrow) {
             return false;
         }

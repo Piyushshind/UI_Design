@@ -8,7 +8,7 @@ const Navbar = () => {
   return (
     <nav className={styles.navbar}>
       <div className={styles.container}>
-        <CustomLogoImage src="./assets/netwin_logo.svg" alt="Netwin Logo" className={styles.logo} />
+        <CustomLogoImage src={`${import.meta.env.VITE_APP_ASSETS_PATH}netwin_logo.svg`} alt="Netwin Logo" className={styles.logo} />
         <LanguageSelector />
       </div>
     </nav>

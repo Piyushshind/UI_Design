@@ -20,7 +20,8 @@ const LivelinessSDK = () => {
                     `${customerId}/validate`,
                     { token: token },
                     { headers: { "Authorization": token } }
-                );
+                ); 
+
                 if (response.status === 200) {
                     setAuth({
                         isAuthenticated: true,
@@ -29,7 +30,7 @@ const LivelinessSDK = () => {
                         customerId: customerId,
                         token: token
                     });
-                    if(response.data.Used >=3){
+                    if (response.data.Used >= 3) {
                         navigate("/fail", { replace: true })
                         return
                     }

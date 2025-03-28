@@ -1,6 +1,7 @@
 import axios from "axios";
 
-const API_URL = "https://192.168.43.208/api/v2/patrons/"; // 192.168.43.208  // localhost:8080
+const API_BASE_URL = import.meta.env.VITE_BASE_URL_PROD;
+// const API_URL = "https://192.168.43.208/Liveliness/api/v2/patrons/"; // 192.168.43.208  // localhost:8080
 
 export const postVideoData = async (videoBlob, gpsCoordinates, authStateObj, generatedOtp) => {
     // console.log('api heats...... ');
@@ -11,7 +12,7 @@ export const postVideoData = async (videoBlob, gpsCoordinates, authStateObj, gen
     formData.append("latitude", gpsCoordinates.latitude);
     formData.append("actualOTP", generatedOtp);
     formData.append("token", token);
-    const dynamicUrl = `${API_URL}${customerId}/verifyVideo`;
+    const dynamicUrl = `${API_BASE_URL}${customerId}/verifyVideo`;
 
     try {
         // console.log("gpsCoordinates :- ", gpsCoordinates, "videoBlob :- ", videoBlob, "generatedOtp ", generatedOtp);
