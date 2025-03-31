@@ -10,7 +10,7 @@ export const useRecording = (webcamRef, generatedOtp) => {
     const navigate = useNavigate();
     const [videoBlob, setVideoBlob] = useState(null);
     const [isProcessing, setIsProcessing] = useState(false);
-    const [timeRemaining, setTimeRemaining] = useState(15);
+    const [timeRemaining, setTimeRemaining] = useState(10);
     const mediaRecorderRef = useRef(null);
     const gpsCoordinates = useRecoilValue(gpsCoordinatesState);
     const [authStateObj, setAuthStateObj] = useRecoilState(authState);
@@ -44,7 +44,7 @@ export const useRecording = (webcamRef, generatedOtp) => {
 
         mediaRecorder.start();
 
-        let countdown = 15;
+        let countdown = 10;
         const timer = setInterval(() => {
             countdown--;
             setTimeRemaining(countdown);

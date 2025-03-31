@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import { useRecoilState } from 'recoil';
+import { useSetRecoilState } from 'recoil';
 import { authState } from '../recoil/atom';
 import { useNavigate, useParams } from 'react-router-dom';
 import axiosInstance from '../api/axiosInstance';
 
 const LivelinessSDK = () => {
     const [isAuthenticating, setIsAuthenticating] = useState(true);
-    const [auth, setAuth] = useRecoilState(authState);
+    const setAuth = useSetRecoilState(authState);
     const { customerId, token } = useParams();
     const navigate = useNavigate();
 
@@ -20,7 +20,7 @@ const LivelinessSDK = () => {
                     `${customerId}/validate`,
                     { token: token },
                     { headers: { "Authorization": token } }
-                ); 
+                );
 
                 if (response.status === 200) {
                     setAuth({
@@ -30,7 +30,7 @@ const LivelinessSDK = () => {
                         customerId: customerId,
                         token: token
                     });
-                    if (response.data.Used >= 3) {
+                    if (Number(response.data.Used) >= 3) {
                         navigate("/fail", { replace: true })
                         return
                     }

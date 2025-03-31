@@ -1,14 +1,22 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styles from './VerificationSuccessPage.module.css';
 import CustomLogoImage from '../company_logo/CustomLogoImage';
 import { useRecoilValue } from 'recoil';
 import { languageData } from '../../recoil/LanguageData/translations';
-import { languageState } from '../../recoil/atom';
+import { authState, languageState } from '../../recoil/atom';
 
 const VerificationSuccessPage = () => {
-
+    const userDetails = useRecoilValue(authState)
     const selectedLanguage = useRecoilValue(languageState);
     const translations = languageData[selectedLanguage];
+
+    useEffect(() => {
+        const message = {
+            status: "success",
+            payload: userDetails,
+        };
+        window.parent.postMessage(message, "*");
+    }, [])
 
     return (
         <>

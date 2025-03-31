@@ -1,6 +1,6 @@
 export const languageData = {
     english: {
-        verificationMessage: "Let’s verify your liveliness in 15 seconds",
+        verificationMessage: "Let’s verify your liveliness in 10 seconds",
       /* `verificationRequired` is a key in the `languageData` object that stores the message
       "Liveliness verification is necessary to proceed with your application." in both English and
       Hindi languages. This message is displayed to the user to inform them that liveliness
@@ -33,7 +33,7 @@ export const languageData = {
         holdTight: "Hold tight, it won’t take long",
         verificationSuccessful: "Liveliness verification successful!",
         verificationFailed: "Liveliness verification unsuccessful",
-        verificationFailedDueToTime : "Liveliness verification was not completed within the allotted 15 seconds.",
+        verificationFailedDueToTime : "Liveliness verification was not completed within the allotted 10 seconds.",
         faceNotMatched: "Face not matched – Ensure your face is clearly visible in the video, with good lighting and no obstructions.",
         recordAgain: "Record Again",
         attemptsLeft: " attempts left",
@@ -41,7 +41,7 @@ export const languageData = {
         unauthorizedActivityDetected: "Unauthorized activity detected – Ensure no masks, photos, or fake videos are used. Record a clear, real-time video.",
     },
     hindi: {
-        verificationMessage: "आइए 15 सेकंड में आपकी जीवंतता को साबित करें",
+        verificationMessage: "आइए 10 सेकंड में आपकी जीवंतता को साबित करें",
         verificationRequired: "आपके आवेदन को आगे बढ़ाने के लिए जीवंतता पुष्टि आवश्यक है।",
         lightingMessage: "सुनिश्चित करें कि आप अच्छी रोशनी वाले, शांत स्थान पर हों, जहां सीधी धूप न आती हो।",
         continue: "जारी रखें",
@@ -70,7 +70,7 @@ export const languageData = {
         holdTight: "स रुके रहें, इसमें ज्यादा समय नहीं लगेगा।",
         verificationSuccessful: "जीवंतता पुष्टि सफल रही!",
         verificationFailed: "जीवंतता पुष्टि असफल रही।",
-        verificationFailedDueToTime : "निर्धारित 15 सेकंड में जीवंतता पुष्टि पूरी नहीं हुई।",
+        verificationFailedDueToTime : "निर्धारित 10 सेकंड में जीवंतता पुष्टि पूरी नहीं हुई।",
         faceNotMatched: "चेहरा मेल नहीं खा रहा – सुनिश्चित करें कि आपका चेहरा वीडियो में साफ़ दिखाई दे, रोशनी अच्छी हो और कोई रुकावट न हो।",
         recordAgain: "फिर से रिकॉर्ड करें।",
         attemptsLeft: " प्रयास बाकी हैं।",

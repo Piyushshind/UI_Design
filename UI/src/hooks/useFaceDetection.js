@@ -1,4 +1,4 @@
-import {  useRef, useEffect } from 'react';
+import { useRef, useEffect } from 'react';
 import { useSetRecoilState } from 'recoil';
 import { recordingButtonEnableState, isValidHumanFaceDetectedState, setPreRecordingErrorMessageState } from '../recoil/atom.js';
 import { isValidHumanFace } from '../methods/isValidHumanFace';
@@ -50,7 +50,7 @@ const useFaceDetection = (webcamRef) => {
                 setIsRecordingButtonEnabled(true);
                 // console.log("Face detected successfully, stopping detection.");
             }
-        }, 1000);
+        }, 600);
 
         setTimeout(() => {
             if (detectionCount <= 3) {
@@ -61,7 +61,7 @@ const useFaceDetection = (webcamRef) => {
                     console.log("No valid face detected in time.");
                 }
             }
-        }, 20000);
+        }, 10000);
     };
 
     useEffect(() => {

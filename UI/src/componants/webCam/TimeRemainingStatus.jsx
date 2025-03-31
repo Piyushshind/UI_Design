@@ -8,7 +8,7 @@ const TimeRemainingStatus = ({ timeRemaining = 5 }) => {
             <div className={styles.timerWrapper}>
                 <CountdownCircleTimer
                     isPlaying={true}
-                    duration={15}
+                    duration={10}
                     colors={["#2181DA"]}
                     strokeWidth={4}
                     size={60}
