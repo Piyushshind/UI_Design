@@ -37,7 +37,7 @@ const useFaceDetection = (webcamRef) => {
                 const landmarks = detections[0].landmarks;
                 const isHuman = isValidHumanFace(landmarks);
 
-                // console.log("detectionCount  ;- ", detectionCount, "isValidHumanFace :- ", isHuman);
+                // console.log("detectionCount  :- ", detectionCount, "isValidHumanFace :- ", isHuman);
                 if (isHuman) {
                     detectionCount++;
                 }
