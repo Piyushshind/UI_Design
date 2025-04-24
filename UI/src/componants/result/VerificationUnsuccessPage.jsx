@@ -92,7 +92,7 @@ const VerificationUnsuccessPage = () => {
                             </div>
                         </button>
 
-                        <p className={styles.attemptsText}>{(3 - (authStatus.usedCount))}{translations.attemptsLeft}</p>
+                        <p className={styles.attemptsText}>{(3 - (authStatus.usedCount))} {(3 - (authStatus.usedCount)) <= 1 ? translations.attemptLeft : translations.attemptsLeft}</p>
                         {attemptUsedMessage && <p className={styles.attemptsText}>{attemptUsedMessage}</p>}
                     </div>
                 </section>

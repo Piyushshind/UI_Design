@@ -1,10 +1,10 @@
 export const languageData = {
     english: {
         verificationMessage: "Let’s verify your liveliness in 10 seconds",
-      /* `verificationRequired` is a key in the `languageData` object that stores the message
-      "Liveliness verification is necessary to proceed with your application." in both English and
-      Hindi languages. This message is displayed to the user to inform them that liveliness
-      verification is required in order to continue with their application. */
+        /* `verificationRequired` is a key in the `languageData` object that stores the message
+        "Liveliness verification is necessary to proceed with your application." in both English and
+        Hindi languages. This message is displayed to the user to inform them that liveliness
+        verification is required in order to continue with their application. */
         verificationRequired: "Liveliness verification is necessary to proceed with your application.",
         lightingMessage: "Make sure you are in a well-lit, quiet place that is not in direct sunlight.",
         continue: "Continue",
@@ -33,10 +33,11 @@ export const languageData = {
         holdTight: "Hold tight, it won’t take long",
         verificationSuccessful: "Liveliness verification successful!",
         verificationFailed: "Liveliness verification unsuccessful",
-        verificationFailedDueToTime : "Liveliness verification was not completed within the allotted 10 seconds.",
+        verificationFailedDueToTime: "Liveliness verification was not completed within the allotted 10 seconds.",
         faceNotMatched: "Face not matched – Ensure your face is clearly visible in the video, with good lighting and no obstructions.",
         recordAgain: "Record Again",
-        attemptsLeft: " attempt left",
+        attemptsLeft: " attempts left",
+        attemptLeft: " attempt left",
         otpNotVerified: "OTP not verified – Ensure your voice is clear in the video, without background noise.",
         unauthorizedActivityDetected: "Unauthorized activity detected – Ensure no masks, photos, or fake videos are used. Record a clear, real-time video.",
     },
@@ -70,10 +71,11 @@ export const languageData = {
         holdTight: "रुके रहें, इसमें ज्यादा समय नहीं लगेगा।",
         verificationSuccessful: "जीवंतता पुष्टि सफल रही!",
         verificationFailed: "जीवंतता पुष्टि असफल रही।",
-        verificationFailedDueToTime : "निर्धारित 10 सेकंड में जीवंतता पुष्टि पूरी नहीं हुई।",
+        verificationFailedDueToTime: "निर्धारित 10 सेकंड में जीवंतता पुष्टि पूरी नहीं हुई।",
         faceNotMatched: "चेहरा मेल नहीं खा रहा – सुनिश्चित करें कि आपका चेहरा वीडियो में साफ़ दिखाई दे, रोशनी अच्छी हो और कोई रुकावट न हो।",
         recordAgain: "फिर से रिकॉर्ड करें।",
         attemptsLeft: " प्रयास बाकी हैं।",
+        attemptLeft: " प्रयास बाकी हैं।",
         otpNotVerified: "OTP पुष्टि नहीं हुई – सुनिश्चित करें कि आपकी आवाज़ वीडियो में साफ़ हो और पीछे शोर न हो।",
         unauthorizedActivityDetected: "ग़लत गतिविधि पाई गई – सुनिश्चित करें कि कोई मास्क, फोटो या नकली वीडियो इस्तेमाल न हो। एक स्पष्ट और वास्तविक समय का वीडियो रिकॉर्ड करें।",
     },
