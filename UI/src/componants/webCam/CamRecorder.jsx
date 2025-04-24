@@ -49,7 +49,7 @@ const CamRecorder = () => {
                             (
                                 <>
                                     <p className={styles.instructionText}>
-                                        {isRecordingButtonEnabled ? translations.speakOutLoud : translations.followInstructionsForRecording}
+                                        {isRecorderbuttonClicked ? translations.speakOutLoud : translations.followInstructionsForRecording}
                                     </p>
                                     <InstructionBox translations={translations} generatedOtp={generatedOtp} startPreRecordingCheck={startPreRecordingCheck} />
                                     {/* <h3>timeRemaining :- {timeRemaining}</h3> */}
