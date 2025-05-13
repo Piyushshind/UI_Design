@@ -5,6 +5,7 @@ import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { authState, isValidHumanFaceDetectedState, languageState, recordingButtonEnableState } from '../../recoil/atom';
 import { languageData } from '../../recoil/LanguageData/translations';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { reasonKeywordTranslations } from "../../recoil/LanguageData/apiReasonKeywordTranslations";
 
 const VerificationUnsuccessPage = () => {
     const selectedLanguage = useRecoilValue(languageState);
@@ -29,10 +30,19 @@ const VerificationUnsuccessPage = () => {
                 // console.log("from fail page ", response);
             }
             if (response.reasons) {
-                setReasonMessage(response.reasons[0] || "");
+                const firstReason = response.reasons[0]?.toLowerCase() || "";
+
+                let keyword = "";
+                if (firstReason.includes("otp")) keyword = "otp";
+                else if (firstReason.includes("liveliness")) keyword = "liveliness";
+                else if (firstReason.includes("authenticity")) keyword = "authenticity";
+                else if (firstReason.includes("face")) keyword = "face";
+
+                const translated = reasonKeywordTranslations[keyword]?.[selectedLanguage] || response.reasons[0];
+                setReasonMessage(translated);
             }
         }
-    }, [response]);
+    }, [response, selectedLanguage]);
 
     const handleRecordAgain = () => {
         const customerId = authStatus.customerId;
