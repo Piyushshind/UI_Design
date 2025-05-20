@@ -7,12 +7,14 @@ import { useRecoilValue } from "recoil";
 export function StatusMessage() { // holdTight
     const selectedLanguage = useRecoilValue(languageState);
     const translations = languageData[selectedLanguage];
+    const [line1, line2] = translations.livelinessInProgress.split("\n");
+
     return (
         <>
             <h1 className={styles.title}>
-                Liveliness verification
+                {line1}
                 <br />
-                in progress
+                {line2}
             </h1>
             <p className={styles.subtitle}>{translations.holdTight}</p>
         </>

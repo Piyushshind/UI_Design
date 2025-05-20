@@ -5,7 +5,7 @@ import { activateWebCamState, isValidHumanFaceDetectedState } from "../../recoil
 import { useRecoilState, useRecoilValue } from "recoil";
 // import useFaceDetection from "../../hooks/useFaceDetection";
 
-function VideoRecorder({ webcamRef , startPreRecordingCheck }) {
+function VideoRecorder({ webcamRef, startPreRecordingCheck }) {
   const [isWebCamActive, setIsWebCamActive] = useRecoilState(activateWebCamState);
 
   const IsValidHumanFaceDetected = useRecoilValue(isValidHumanFaceDetectedState);
