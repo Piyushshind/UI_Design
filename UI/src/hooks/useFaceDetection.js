@@ -1,8 +1,9 @@
 import { useRef, useEffect } from 'react';
-import { useSetRecoilState } from 'recoil';
-import { recordingButtonEnableState, isValidHumanFaceDetectedState, setPreRecordingErrorMessageState } from '../recoil/atom.js';
+import { useRecoilValue, useSetRecoilState } from 'recoil';
+import { recordingButtonEnableState, isValidHumanFaceDetectedState, setPreRecordingErrorMessageState, languageState } from '../recoil/atom.js';
 import { isValidHumanFace } from '../methods/isValidHumanFace';
 import * as faceapi from 'face-api.js';
+import { languageData } from '../recoil/LanguageData/translations.js';
 
 const useFaceDetection = (webcamRef) => {
     const setPreRecordingErrorMessage = useSetRecoilState(setPreRecordingErrorMessageState)
@@ -10,7 +11,8 @@ const useFaceDetection = (webcamRef) => {
     const isComponantMount = useRef(true);
     const setIsRecordingButtonEnabled = useSetRecoilState(recordingButtonEnableState);
     const setIsValidHumanFaceDetected = useSetRecoilState(isValidHumanFaceDetectedState);
-
+    const selectedLanguage = useRecoilValue(languageState);
+    const translations = languageData[selectedLanguage];
 
     useEffect(() => {
         return () => {
@@ -57,7 +59,7 @@ const useFaceDetection = (webcamRef) => {
                 clearInterval(detectionInterval);
                 if (isComponantMount.current) {
                     setIsValidHumanFaceDetected(false);
-                    setPreRecordingErrorMessage("No valid human face detected. Please try again.");
+                    setPreRecordingErrorMessage(translations.noValidHumanFaceDetectedInTime);
                     console.log("No valid face detected in time.");
                 }
             }

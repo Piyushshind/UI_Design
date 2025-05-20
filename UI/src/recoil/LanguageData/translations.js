@@ -1,5 +1,6 @@
 export const languageData = {
     english: {
+        noValidHumanFaceDetectedInTime: "No valid human face detected. Please try again.",
         verificationMessage: "Let’s verify your liveliness in 10 seconds",
         /* `verificationRequired` is a key in the `languageData` object that stores the message
         "Liveliness verification is necessary to proceed with your application." in both English and
@@ -42,6 +43,7 @@ export const languageData = {
         unauthorizedActivityDetected: "Unauthorized activity detected – Ensure no masks, photos, or fake videos are used. Record a clear, real-time video.",
     },
     hindi: {
+        noValidHumanFaceDetectedInTime: "कोई मान्य मानव चेहरा नहीं मिला। कृपया फिर से प्रयास करें।",
         verificationMessage: "आइए 10 सेकंड में आपकी जीवंतता को साबित करें",
         verificationRequired: "आपके आवेदन को आगे बढ़ाने के लिए जीवंतता पुष्टि आवश्यक है।",
         lightingMessage: "सुनिश्चित करें कि आप अच्छी रोशनी वाले, शांत स्थान पर हों, जहां सीधी धूप न आती हो।",
